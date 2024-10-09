@@ -1,0 +1,49 @@
+﻿@model Loboteva_v2.Models.Sancione
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Sancione</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="IdSancion" />
+            <div class="form-group">
+                <label asp-for="Estado" class="control-label"></label>
+                <input asp-for="Estado" class="form-control" />
+                <span asp-validation-for="Estado" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IdAlumno" class="control-label"></label>
+                <select asp-for="IdAlumno" class="form-control" asp-items="ViewBag.IdAlumno"></select>
+                <span asp-validation-for="IdAlumno" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IdPrestamo" class="control-label"></label>
+                <select asp-for="IdPrestamo" class="form-control" asp-items="ViewBag.IdPrestamo"></select>
+                <span asp-validation-for="IdPrestamo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IdPenalizacion" class="control-label"></label>
+                <select asp-for="IdPenalizacion" class="form-control" asp-items="ViewBag.IdPenalizacion"></select>
+                <span asp-validation-for="IdPenalizacion" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

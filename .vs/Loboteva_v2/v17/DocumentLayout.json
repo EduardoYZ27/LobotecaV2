@@ -1,0 +1,343 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\ASP\\APIS\\Loboteva_v2\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{F858F1AA-0E15-4A8F-BC77-4DB9976D3DEC}|Loboteva_v2\\Loboteva_v2.csproj|d:\\asp\\apis\\loboteva_v2\\loboteva_v2\\controllers\\sancionescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F858F1AA-0E15-4A8F-BC77-4DB9976D3DEC}|Loboteva_v2\\Loboteva_v2.csproj|solutionrelative:loboteva_v2\\controllers\\sancionescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F858F1AA-0E15-4A8F-BC77-4DB9976D3DEC}|Loboteva_v2\\Loboteva_v2.csproj|d:\\asp\\apis\\loboteva_v2\\loboteva_v2\\controllers\\revistacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F858F1AA-0E15-4A8F-BC77-4DB9976D3DEC}|Loboteva_v2\\Loboteva_v2.csproj|solutionrelative:loboteva_v2\\controllers\\revistacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F858F1AA-0E15-4A8F-BC77-4DB9976D3DEC}|Loboteva_v2\\Loboteva_v2.csproj|d:\\asp\\apis\\loboteva_v2\\loboteva_v2\\controllers\\prestamocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F858F1AA-0E15-4A8F-BC77-4DB9976D3DEC}|Loboteva_v2\\Loboteva_v2.csproj|solutionrelative:loboteva_v2\\controllers\\prestamocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F858F1AA-0E15-4A8F-BC77-4DB9976D3DEC}|Loboteva_v2\\Loboteva_v2.csproj|d:\\asp\\apis\\loboteva_v2\\loboteva_v2\\controllers\\librocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F858F1AA-0E15-4A8F-BC77-4DB9976D3DEC}|Loboteva_v2\\Loboteva_v2.csproj|solutionrelative:loboteva_v2\\controllers\\librocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F858F1AA-0E15-4A8F-BC77-4DB9976D3DEC}|Loboteva_v2\\Loboteva_v2.csproj|d:\\asp\\apis\\loboteva_v2\\loboteva_v2\\controllers\\elibrocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F858F1AA-0E15-4A8F-BC77-4DB9976D3DEC}|Loboteva_v2\\Loboteva_v2.csproj|solutionrelative:loboteva_v2\\controllers\\elibrocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F858F1AA-0E15-4A8F-BC77-4DB9976D3DEC}|Loboteva_v2\\Loboteva_v2.csproj|d:\\asp\\apis\\loboteva_v2\\loboteva_v2\\controllers\\editorialcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F858F1AA-0E15-4A8F-BC77-4DB9976D3DEC}|Loboteva_v2\\Loboteva_v2.csproj|solutionrelative:loboteva_v2\\controllers\\editorialcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F858F1AA-0E15-4A8F-BC77-4DB9976D3DEC}|Loboteva_v2\\Loboteva_v2.csproj|d:\\asp\\apis\\loboteva_v2\\loboteva_v2\\controllers\\configuracionpenalizacionescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F858F1AA-0E15-4A8F-BC77-4DB9976D3DEC}|Loboteva_v2\\Loboteva_v2.csproj|solutionrelative:loboteva_v2\\controllers\\configuracionpenalizacionescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F858F1AA-0E15-4A8F-BC77-4DB9976D3DEC}|Loboteva_v2\\Loboteva_v2.csproj|d:\\asp\\apis\\loboteva_v2\\loboteva_v2\\controllers\\autorrevistacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F858F1AA-0E15-4A8F-BC77-4DB9976D3DEC}|Loboteva_v2\\Loboteva_v2.csproj|solutionrelative:loboteva_v2\\controllers\\autorrevistacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F858F1AA-0E15-4A8F-BC77-4DB9976D3DEC}|Loboteva_v2\\Loboteva_v2.csproj|d:\\asp\\apis\\loboteva_v2\\loboteva_v2\\controllers\\autorlibrocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F858F1AA-0E15-4A8F-BC77-4DB9976D3DEC}|Loboteva_v2\\Loboteva_v2.csproj|solutionrelative:loboteva_v2\\controllers\\autorlibrocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F858F1AA-0E15-4A8F-BC77-4DB9976D3DEC}|Loboteva_v2\\Loboteva_v2.csproj|d:\\asp\\apis\\loboteva_v2\\loboteva_v2\\controllers\\autorelibrocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F858F1AA-0E15-4A8F-BC77-4DB9976D3DEC}|Loboteva_v2\\Loboteva_v2.csproj|solutionrelative:loboteva_v2\\controllers\\autorelibrocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F858F1AA-0E15-4A8F-BC77-4DB9976D3DEC}|Loboteva_v2\\Loboteva_v2.csproj|d:\\asp\\apis\\loboteva_v2\\loboteva_v2\\controllers\\administradorcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F858F1AA-0E15-4A8F-BC77-4DB9976D3DEC}|Loboteva_v2\\Loboteva_v2.csproj|solutionrelative:loboteva_v2\\controllers\\administradorcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F858F1AA-0E15-4A8F-BC77-4DB9976D3DEC}|Loboteva_v2\\Loboteva_v2.csproj|d:\\asp\\apis\\loboteva_v2\\loboteva_v2\\controllers\\autorcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F858F1AA-0E15-4A8F-BC77-4DB9976D3DEC}|Loboteva_v2\\Loboteva_v2.csproj|solutionrelative:loboteva_v2\\controllers\\autorcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F858F1AA-0E15-4A8F-BC77-4DB9976D3DEC}|Loboteva_v2\\Loboteva_v2.csproj|d:\\asp\\apis\\loboteva_v2\\loboteva_v2\\controllers\\alumnocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F858F1AA-0E15-4A8F-BC77-4DB9976D3DEC}|Loboteva_v2\\Loboteva_v2.csproj|solutionrelative:loboteva_v2\\controllers\\alumnocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F858F1AA-0E15-4A8F-BC77-4DB9976D3DEC}|Loboteva_v2\\Loboteva_v2.csproj|d:\\asp\\apis\\loboteva_v2\\loboteva_v2\\controllers\\carrerascontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F858F1AA-0E15-4A8F-BC77-4DB9976D3DEC}|Loboteva_v2\\Loboteva_v2.csproj|solutionrelative:loboteva_v2\\controllers\\carrerascontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F858F1AA-0E15-4A8F-BC77-4DB9976D3DEC}|Loboteva_v2\\Loboteva_v2.csproj|d:\\asp\\apis\\loboteva_v2\\loboteva_v2\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F858F1AA-0E15-4A8F-BC77-4DB9976D3DEC}|Loboteva_v2\\Loboteva_v2.csproj|solutionrelative:loboteva_v2\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F858F1AA-0E15-4A8F-BC77-4DB9976D3DEC}|Loboteva_v2\\Loboteva_v2.csproj|d:\\asp\\apis\\loboteva_v2\\loboteva_v2\\models\\lobotecacontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F858F1AA-0E15-4A8F-BC77-4DB9976D3DEC}|Loboteva_v2\\Loboteva_v2.csproj|solutionrelative:loboteva_v2\\models\\lobotecacontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F858F1AA-0E15-4A8F-BC77-4DB9976D3DEC}|Loboteva_v2\\Loboteva_v2.csproj|d:\\asp\\apis\\loboteva_v2\\loboteva_v2\\models\\alumno.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F858F1AA-0E15-4A8F-BC77-4DB9976D3DEC}|Loboteva_v2\\Loboteva_v2.csproj|solutionrelative:loboteva_v2\\models\\alumno.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F858F1AA-0E15-4A8F-BC77-4DB9976D3DEC}|Loboteva_v2\\Loboteva_v2.csproj|d:\\asp\\apis\\loboteva_v2\\loboteva_v2\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F858F1AA-0E15-4A8F-BC77-4DB9976D3DEC}|Loboteva_v2\\Loboteva_v2.csproj|solutionrelative:loboteva_v2\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F858F1AA-0E15-4A8F-BC77-4DB9976D3DEC}|Loboteva_v2\\Loboteva_v2.csproj|d:\\asp\\apis\\loboteva_v2\\loboteva_v2\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{F858F1AA-0E15-4A8F-BC77-4DB9976D3DEC}|Loboteva_v2\\Loboteva_v2.csproj|solutionrelative:loboteva_v2\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "SancionesController.cs",
+              "DocumentMoniker": "D:\\ASP\\APIS\\Loboteva_v2\\Loboteva_v2\\Controllers\\SancionesController.cs",
+              "RelativeDocumentMoniker": "Loboteva_v2\\Controllers\\SancionesController.cs",
+              "ToolTip": "D:\\ASP\\APIS\\Loboteva_v2\\Loboteva_v2\\Controllers\\SancionesController.cs",
+              "RelativeToolTip": "Loboteva_v2\\Controllers\\SancionesController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-09T20:53:07.015Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "RevistaController.cs",
+              "DocumentMoniker": "D:\\ASP\\APIS\\Loboteva_v2\\Loboteva_v2\\Controllers\\RevistaController.cs",
+              "RelativeDocumentMoniker": "Loboteva_v2\\Controllers\\RevistaController.cs",
+              "ToolTip": "D:\\ASP\\APIS\\Loboteva_v2\\Loboteva_v2\\Controllers\\RevistaController.cs",
+              "RelativeToolTip": "Loboteva_v2\\Controllers\\RevistaController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-09T20:51:46.446Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "PrestamoController.cs",
+              "DocumentMoniker": "D:\\ASP\\APIS\\Loboteva_v2\\Loboteva_v2\\Controllers\\PrestamoController.cs",
+              "RelativeDocumentMoniker": "Loboteva_v2\\Controllers\\PrestamoController.cs",
+              "ToolTip": "D:\\ASP\\APIS\\Loboteva_v2\\Loboteva_v2\\Controllers\\PrestamoController.cs",
+              "RelativeToolTip": "Loboteva_v2\\Controllers\\PrestamoController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-09T20:50:54.174Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "LibroController.cs",
+              "DocumentMoniker": "D:\\ASP\\APIS\\Loboteva_v2\\Loboteva_v2\\Controllers\\LibroController.cs",
+              "RelativeDocumentMoniker": "Loboteva_v2\\Controllers\\LibroController.cs",
+              "ToolTip": "D:\\ASP\\APIS\\Loboteva_v2\\Loboteva_v2\\Controllers\\LibroController.cs",
+              "RelativeToolTip": "Loboteva_v2\\Controllers\\LibroController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-09T20:50:12.713Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "ELibroController.cs",
+              "DocumentMoniker": "D:\\ASP\\APIS\\Loboteva_v2\\Loboteva_v2\\Controllers\\ELibroController.cs",
+              "RelativeDocumentMoniker": "Loboteva_v2\\Controllers\\ELibroController.cs",
+              "ToolTip": "D:\\ASP\\APIS\\Loboteva_v2\\Loboteva_v2\\Controllers\\ELibroController.cs",
+              "RelativeToolTip": "Loboteva_v2\\Controllers\\ELibroController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-09T20:49:29.794Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "EditorialController.cs",
+              "DocumentMoniker": "D:\\ASP\\APIS\\Loboteva_v2\\Loboteva_v2\\Controllers\\EditorialController.cs",
+              "RelativeDocumentMoniker": "Loboteva_v2\\Controllers\\EditorialController.cs",
+              "ToolTip": "D:\\ASP\\APIS\\Loboteva_v2\\Loboteva_v2\\Controllers\\EditorialController.cs",
+              "RelativeToolTip": "Loboteva_v2\\Controllers\\EditorialController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-09T20:48:44.984Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "ConfiguracionPenalizacionesController.cs",
+              "DocumentMoniker": "D:\\ASP\\APIS\\Loboteva_v2\\Loboteva_v2\\Controllers\\ConfiguracionPenalizacionesController.cs",
+              "RelativeDocumentMoniker": "Loboteva_v2\\Controllers\\ConfiguracionPenalizacionesController.cs",
+              "ToolTip": "D:\\ASP\\APIS\\Loboteva_v2\\Loboteva_v2\\Controllers\\ConfiguracionPenalizacionesController.cs",
+              "RelativeToolTip": "Loboteva_v2\\Controllers\\ConfiguracionPenalizacionesController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-09T20:48:03.898Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "AutorRevistaController.cs",
+              "DocumentMoniker": "D:\\ASP\\APIS\\Loboteva_v2\\Loboteva_v2\\Controllers\\AutorRevistaController.cs",
+              "RelativeDocumentMoniker": "Loboteva_v2\\Controllers\\AutorRevistaController.cs",
+              "ToolTip": "D:\\ASP\\APIS\\Loboteva_v2\\Loboteva_v2\\Controllers\\AutorRevistaController.cs",
+              "RelativeToolTip": "Loboteva_v2\\Controllers\\AutorRevistaController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-09T20:47:08.308Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "AutorLibroController.cs",
+              "DocumentMoniker": "D:\\ASP\\APIS\\Loboteva_v2\\Loboteva_v2\\Controllers\\AutorLibroController.cs",
+              "RelativeDocumentMoniker": "Loboteva_v2\\Controllers\\AutorLibroController.cs",
+              "ToolTip": "D:\\ASP\\APIS\\Loboteva_v2\\Loboteva_v2\\Controllers\\AutorLibroController.cs",
+              "RelativeToolTip": "Loboteva_v2\\Controllers\\AutorLibroController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-09T20:45:33.889Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "AutorELibroController.cs",
+              "DocumentMoniker": "D:\\ASP\\APIS\\Loboteva_v2\\Loboteva_v2\\Controllers\\AutorELibroController.cs",
+              "RelativeDocumentMoniker": "Loboteva_v2\\Controllers\\AutorELibroController.cs",
+              "ToolTip": "D:\\ASP\\APIS\\Loboteva_v2\\Loboteva_v2\\Controllers\\AutorELibroController.cs",
+              "RelativeToolTip": "Loboteva_v2\\Controllers\\AutorELibroController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-09T20:44:57.267Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "AdministradorController.cs",
+              "DocumentMoniker": "D:\\ASP\\APIS\\Loboteva_v2\\Loboteva_v2\\Controllers\\AdministradorController.cs",
+              "RelativeDocumentMoniker": "Loboteva_v2\\Controllers\\AdministradorController.cs",
+              "ToolTip": "D:\\ASP\\APIS\\Loboteva_v2\\Loboteva_v2\\Controllers\\AdministradorController.cs",
+              "RelativeToolTip": "Loboteva_v2\\Controllers\\AdministradorController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-09T20:44:11.329Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "AutorController.cs",
+              "DocumentMoniker": "D:\\ASP\\APIS\\Loboteva_v2\\Loboteva_v2\\Controllers\\AutorController.cs",
+              "RelativeDocumentMoniker": "Loboteva_v2\\Controllers\\AutorController.cs",
+              "ToolTip": "D:\\ASP\\APIS\\Loboteva_v2\\Loboteva_v2\\Controllers\\AutorController.cs",
+              "RelativeToolTip": "Loboteva_v2\\Controllers\\AutorController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-09T20:40:44.997Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "AlumnoController.cs",
+              "DocumentMoniker": "D:\\ASP\\APIS\\Loboteva_v2\\Loboteva_v2\\Controllers\\AlumnoController.cs",
+              "RelativeDocumentMoniker": "Loboteva_v2\\Controllers\\AlumnoController.cs",
+              "ToolTip": "D:\\ASP\\APIS\\Loboteva_v2\\Loboteva_v2\\Controllers\\AlumnoController.cs",
+              "RelativeToolTip": "Loboteva_v2\\Controllers\\AlumnoController.cs",
+              "ViewState": "AgIAAKEAAAAAAAAAAAA0wAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-09T20:33:10.164Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "CarrerasController.cs",
+              "DocumentMoniker": "D:\\ASP\\APIS\\Loboteva_v2\\Loboteva_v2\\Controllers\\CarrerasController.cs",
+              "RelativeDocumentMoniker": "Loboteva_v2\\Controllers\\CarrerasController.cs",
+              "ToolTip": "D:\\ASP\\APIS\\Loboteva_v2\\Loboteva_v2\\Controllers\\CarrerasController.cs",
+              "RelativeToolTip": "Loboteva_v2\\Controllers\\CarrerasController.cs",
+              "ViewState": "AgIAADkAAAAAAAAAAAA7wEkAAAAiAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-09T20:26:59.346Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "HomeController.cs",
+              "DocumentMoniker": "D:\\ASP\\APIS\\Loboteva_v2\\Loboteva_v2\\Controllers\\HomeController.cs",
+              "RelativeDocumentMoniker": "Loboteva_v2\\Controllers\\HomeController.cs",
+              "ToolTip": "D:\\ASP\\APIS\\Loboteva_v2\\Loboteva_v2\\Controllers\\HomeController.cs",
+              "RelativeToolTip": "Loboteva_v2\\Controllers\\HomeController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-09T20:23:16.76Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\ASP\\APIS\\Loboteva_v2\\Loboteva_v2\\Program.cs",
+              "RelativeDocumentMoniker": "Loboteva_v2\\Program.cs",
+              "ToolTip": "D:\\ASP\\APIS\\Loboteva_v2\\Loboteva_v2\\Program.cs",
+              "RelativeToolTip": "Loboteva_v2\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAABQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-09T20:16:16.386Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "D:\\ASP\\APIS\\Loboteva_v2\\Loboteva_v2\\appsettings.json",
+              "RelativeDocumentMoniker": "Loboteva_v2\\appsettings.json",
+              "ToolTip": "D:\\ASP\\APIS\\Loboteva_v2\\Loboteva_v2\\appsettings.json",
+              "RelativeToolTip": "Loboteva_v2\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAABUAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-10-09T20:14:50.929Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "Alumno.cs",
+              "DocumentMoniker": "D:\\ASP\\APIS\\Loboteva_v2\\Loboteva_v2\\Models\\Alumno.cs",
+              "RelativeDocumentMoniker": "Loboteva_v2\\Models\\Alumno.cs",
+              "ToolTip": "D:\\ASP\\APIS\\Loboteva_v2\\Loboteva_v2\\Models\\Alumno.cs",
+              "RelativeToolTip": "Loboteva_v2\\Models\\Alumno.cs",
+              "ViewState": "AgIAAAwAAAAAAAAAAAA1wBQAAAApAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-09T20:13:11.168Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "LobotecaContext.cs",
+              "DocumentMoniker": "D:\\ASP\\APIS\\Loboteva_v2\\Loboteva_v2\\Models\\LobotecaContext.cs",
+              "RelativeDocumentMoniker": "Loboteva_v2\\Models\\LobotecaContext.cs",
+              "ToolTip": "D:\\ASP\\APIS\\Loboteva_v2\\Loboteva_v2\\Models\\LobotecaContext.cs",
+              "RelativeToolTip": "Loboteva_v2\\Models\\LobotecaContext.cs",
+              "ViewState": "AgIAAFgAAAAAAAAAAAAQwGwAAAAtAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-09T20:11:51.808Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
