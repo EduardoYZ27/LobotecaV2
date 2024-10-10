@@ -47,7 +47,7 @@ namespace Loboteva_v2.Controllers
         // GET: Alumno/Create
         public IActionResult Create()
         {
-            ViewData["IdCarrera"] = new SelectList(_context.Carreras, "Id", "Id");
+            ViewData["IdCarrera"] = new SelectList(_context.Carreras, "Id", "NombreDeLaCarrera");
             return View();
         }
 
@@ -64,7 +64,7 @@ namespace Loboteva_v2.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["IdCarrera"] = new SelectList(_context.Carreras, "Id", "Id", alumno.IdCarrera);
+            ViewData["IdCarrera"] = new SelectList(_context.Carreras, "Id", "NombreDeLaCarrera", alumno.IdCarrera);
             return View(alumno);
         }
 
@@ -81,7 +81,7 @@ namespace Loboteva_v2.Controllers
             {
                 return NotFound();
             }
-            ViewData["IdCarrera"] = new SelectList(_context.Carreras, "Id", "Id", alumno.IdCarrera);
+            ViewData["IdCarrera"] = new SelectList(_context.Carreras, "Id", "NombreDeLaCarrera", alumno.IdCarrera);
             return View(alumno);
         }
 
@@ -117,7 +117,7 @@ namespace Loboteva_v2.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["IdCarrera"] = new SelectList(_context.Carreras, "Id", "Id", alumno.IdCarrera);
+            ViewData["IdCarrera"] = new SelectList(_context.Carreras, "Id", "NombreDeLaCarrera", alumno.IdCarrera);
             return View(alumno);
         }
 

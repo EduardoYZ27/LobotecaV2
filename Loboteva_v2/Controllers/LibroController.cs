@@ -47,7 +47,7 @@ namespace Loboteva_v2.Controllers
         // GET: Libro/Create
         public IActionResult Create()
         {
-            ViewData["IdEditorial"] = new SelectList(_context.Editorials, "Id", "Id");
+            ViewData["IdEditorial"] = new SelectList(_context.Editorials, "Id", "Nombre");
             return View();
         }
 
@@ -64,7 +64,7 @@ namespace Loboteva_v2.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["IdEditorial"] = new SelectList(_context.Editorials, "Id", "Id", libro.IdEditorial);
+            ViewData["IdEditorial"] = new SelectList(_context.Editorials, "Id", "Nombre", libro.IdEditorial);
             return View(libro);
         }
 
@@ -81,7 +81,7 @@ namespace Loboteva_v2.Controllers
             {
                 return NotFound();
             }
-            ViewData["IdEditorial"] = new SelectList(_context.Editorials, "Id", "Id", libro.IdEditorial);
+            ViewData["IdEditorial"] = new SelectList(_context.Editorials, "Id", "Nombre", libro.IdEditorial);
             return View(libro);
         }
 
@@ -117,7 +117,7 @@ namespace Loboteva_v2.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["IdEditorial"] = new SelectList(_context.Editorials, "Id", "Id", libro.IdEditorial);
+            ViewData["IdEditorial"] = new SelectList(_context.Editorials, "Id", "Nombre", libro.IdEditorial);
             return View(libro);
         }
 
