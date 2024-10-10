@@ -8,27 +8,29 @@ body {
 /* Barra de navegación */
 .navbar {
     background-color: #781c2e;
-    padding: 10px;
+    padding: 30px;
     color: white;
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    justify-content: space-between;
 }
 
     .navbar h1 {
         color: white;
+        margin: 0;
         margin-left: 1.5cm;
     }
 
 /* Logo a la izquierda */
 .logo-left {
     list-style: none;
-    margin: 0;
     padding: 0;
+    margin: 0;
     display: flex;
     align-items: center;
     position: absolute;
     left: 10px;
+    top: 3px;
 }
 
 .logo {
@@ -65,6 +67,8 @@ body {
             color: white;
             text-decoration: none;
             font-size: 18px;
+            display: inline-block;
+            text-align: center;
         }
 
             .account-right li a:hover {
@@ -73,7 +77,7 @@ body {
                 padding: 5px;
             }
 
-/* Sección principal */
+/* Contenido principal */
 .main-section {
     padding: 20px;
 }
@@ -84,54 +88,47 @@ body {
     margin-bottom: 20px;
 }
 
+/* Formulario de creación */
 .row {
-    display: flex;
-    justify-content: center;
+    margin: 0 auto;
 }
 
-dt, dd {
-    font-size: 18px;
-}
-
-/* Formulario de detalles */
-.formulario-altas {
-    width: 50%;
-    margin: 40px auto;
-    padding: 30px;
-    border: 2px solid #ccc;
-    border-radius: 10px;
-    background-color: #fff;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
-}
-
-dl.row {
+.form-group {
     margin-bottom: 15px;
 }
 
-dt.col-sm-4 {
-    font-weight: bold;
-    color: #781c2e;
+    .form-group label {
+        font-size: 18px;
+        margin-bottom: 10px;
+        color: #781c2e;
+    }
+
+    .form-group input, .form-group select {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+
+.text-danger {
+    color: #d9534f;
 }
 
-dd.col-sm-8 {
-    margin-bottom: 10px;
-}
-
-.botones {
-    display: flex;
-    justify-content: space-between;
-}
-
-.btn-success, .btn-secondary {
-    background-color: #781c2e;
-    color: white;
+/* Botones */
+.btn {
     padding: 10px 20px;
     border-radius: 5px;
     border: none;
     cursor: pointer;
+    font-size: 14px;
 }
 
-    .btn-success:hover, .btn-secondary:hover {
+.btn-primary {
+    background-color: #781c2e;
+    color: white;
+}
+
+    .btn-primary:hover {
         background-color: #993333;
     }
 
@@ -144,11 +141,20 @@ footer {
     margin-top: 55px;
 }
 
-.social-icons a img {
-    width: 30px;
-    margin: 0 10px;
+    footer p {
+        margin: 10px 0;
+    }
+
+.social-icons {
+    margin-top: 10px;
 }
 
-    .social-icons a img:hover {
-        opacity: 0.7;
+    .social-icons a img {
+        width: 30px;
+        margin: 0 10px;
     }
+
+        .social-icons a img:hover {
+            opacity: 0.7;
+        }
+

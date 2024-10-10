@@ -84,71 +84,93 @@ body {
     margin-bottom: 20px;
 }
 
-.row {
-    display: flex;
-    justify-content: center;
+/* Tabla */
+.table-container {
+    margin-top: 20px;
 }
 
-dt, dd {
-    font-size: 18px;
+.table {
+    width: 80%;
+    margin: 0 auto;
+    border-collapse: collapse;
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
 }
 
-/* Formulario de detalles */
-.formulario-altas {
-    width: 50%;
-    margin: 40px auto;
-    padding: 30px;
-    border: 2px solid #ccc;
-    border-radius: 10px;
-    background-color: #fff;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
-}
+    .table th {
+        background-color: #781c2e;
+        color: white;
+        padding: 12px;
+        font-size: 18px;
+        border-bottom: 2px solid #ddd;
+    }
 
-dl.row {
-    margin-bottom: 15px;
-}
+    .table td {
+        padding: 12px;
+        text-align: center;
+        font-size: 16px;
+        border-bottom: 1px solid #ddd;
+    }
 
-dt.col-sm-4 {
-    font-weight: bold;
-    color: #781c2e;
-}
+    .table tr:hover {
+        background-color: #f2f2f2;
+    }
 
-dd.col-sm-8 {
-    margin-bottom: 10px;
-}
-
-.botones {
-    display: flex;
-    justify-content: space-between;
-}
-
-.btn-success, .btn-secondary {
-    background-color: #781c2e;
-    color: white;
-    padding: 10px 20px;
+/* Botones */
+.btn {
+    padding: 8px 16px;
     border-radius: 5px;
     border: none;
     cursor: pointer;
+    font-size: 14px;
+    margin: 4px;
 }
 
-    .btn-success:hover, .btn-secondary:hover {
-        background-color: #993333;
-    }
+.btn-success {
+    background-color: #781c2e;
+    color: white;
+    margin-left: 18.2cm;
+}
+
+.btn-warning {
+    background-color: #ffc107;
+    color: white;
+}
+
+.btn-info {
+    background-color: #17a2b8;
+    color: white;
+}
+
+.btn-danger {
+    background-color: #dc3545;
+    color: white;
+}
 
 /* Pie de página */
 footer {
     background-color: #781c2e;
     color: white;
     text-align: center;
-    padding: 10px;
-    margin-top: 55px;
+    padding: 20px;
+    margin-top: 320px;
 }
 
-.social-icons a img {
-    width: 30px;
-    margin: 0 10px;
-}
-
-    .social-icons a img:hover {
-        opacity: 0.7;
+    footer p {
+        margin: 10px 0;
     }
+
+.social-icons {
+    margin-top: 10px;
+}
+
+    .social-icons a img {
+        width: 30px;
+        margin: 0 10px;
+    }
+
+        .social-icons a img:hover {
+            opacity: 0.7;
+        }
