@@ -92,7 +92,7 @@ body {
     margin-bottom: 20px;
 }
 
-/* Detalles del autor y libro */
+/* Formulario de edición */
 .row {
     margin: 0 auto;
 }
@@ -102,17 +102,25 @@ body {
     margin: 0 auto;
 }
 
-dl.row {
+.form-group {
     margin-bottom: 15px;
 }
 
-dt.col-sm-2 {
-    font-weight: bold;
-    color: #781c2e;
-}
+    .form-group label {
+        font-size: 18px;
+        margin-bottom: 10px;
+        color: #781c2e;
+    }
 
-dd.col-sm-10 {
-    margin-bottom: 10px;
+    .form-group input, .form-group select {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+
+.text-danger {
+    color: #d9534f;
 }
 
 /* Botones */
@@ -122,26 +130,25 @@ dd.col-sm-10 {
     border: none;
     cursor: pointer;
     font-size: 14px;
-    margin: 10px 5px; /* Espaciado entre botones */
 }
 
-.btn-warning {
-    background-color: #ffc107;
+.btn-primary {
+    background-color: #781c2e;
     color: white;
 }
+
+    .btn-primary:hover {
+        background-color: #993333;
+    }
 
 .btn-secondary {
     background-color: #6c757d;
     color: white;
 }
 
-.btn-warning:hover {
-    background-color: #e0a800;
-}
-
-.btn-secondary:hover {
-    background-color: #5a6268;
-}
+    .btn-secondary:hover {
+        background-color: #5a6268;
+    }
 
 /* Pie de página */
 footer {
