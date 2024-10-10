@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -21,7 +19,9 @@ namespace Loboteva_v2.Controllers
         // GET: Prestamo
         public async Task<IActionResult> Index()
         {
-            var lobotecaContext = _context.Prestamos.Include(p => p.IdAdministradorNavigation).Include(p => p.IdLibroNavigation);
+            var lobotecaContext = _context.Prestamos
+                .Include(p => p.IdAdministradorNavigation)
+                .Include(p => p.IdLibroNavigation);
             return View(await lobotecaContext.ToListAsync());
         }
 
@@ -48,26 +48,29 @@ namespace Loboteva_v2.Controllers
         // GET: Prestamo/Create
         public IActionResult Create()
         {
-            ViewData["IdAdministrador"] = new SelectList(_context.Administradors, "Id", "Id");
-            ViewData["IdLibro"] = new SelectList(_context.Libros, "Id", "Id");
+            ViewData["IdAdministrador"] = new SelectList(_context.Administradors, "Id", "Nombre");
+            ViewData["IdLibro"] = new SelectList(_context.Libros, "Id", "Titulo");
+            ViewData["Estado"] = new SelectList(new[] { "Disponible", "No disponible" });
             return View();
         }
 
         // POST: Prestamo/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,FechaDePrestamo,FechaDeDevolucion,IdAdministrador,Estado,IdLibro")] Prestamo prestamo)
+        public async Task<IActionResult> Create([Bind("Id,FechaDePrestamo,IdAdministrador,Estado,IdLibro")] Prestamo prestamo)
         {
             if (ModelState.IsValid)
             {
+                // Calcular la fecha de devolución sumando 3 días a la fecha de préstamo
+                prestamo.FechaDeDevolucion = prestamo.FechaDePrestamo?.AddDays(3);
+
                 _context.Add(prestamo);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["IdAdministrador"] = new SelectList(_context.Administradors, "Id", "Id", prestamo.IdAdministrador);
-            ViewData["IdLibro"] = new SelectList(_context.Libros, "Id", "Id", prestamo.IdLibro);
+            ViewData["IdAdministrador"] = new SelectList(_context.Administradors, "Id", "Nombre", prestamo.IdAdministrador);
+            ViewData["IdLibro"] = new SelectList(_context.Libros, "Id", "Titulo", prestamo.IdLibro);
+            ViewData["Estado"] = new SelectList(new[] { "Disponible", "No disponible" }, prestamo.Estado);
             return View(prestamo);
         }
 
@@ -84,17 +87,16 @@ namespace Loboteva_v2.Controllers
             {
                 return NotFound();
             }
-            ViewData["IdAdministrador"] = new SelectList(_context.Administradors, "Id", "Id", prestamo.IdAdministrador);
-            ViewData["IdLibro"] = new SelectList(_context.Libros, "Id", "Id", prestamo.IdLibro);
+            ViewData["IdAdministrador"] = new SelectList(_context.Administradors, "Id", "Nombre", prestamo.IdAdministrador);
+            ViewData["IdLibro"] = new SelectList(_context.Libros, "Id", "Titulo", prestamo.IdLibro);
+            ViewData["Estado"] = new SelectList(new[] { "Disponible", "No disponible" }, prestamo.Estado);
             return View(prestamo);
         }
 
         // POST: Prestamo/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,FechaDePrestamo,FechaDeDevolucion,IdAdministrador,Estado,IdLibro")] Prestamo prestamo)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,FechaDePrestamo,IdAdministrador,Estado,IdLibro")] Prestamo prestamo)
         {
             if (id != prestamo.Id)
             {
@@ -105,6 +107,9 @@ namespace Loboteva_v2.Controllers
             {
                 try
                 {
+                    // Calcular la fecha de devolución sumando 3 días a la fecha de préstamo
+                    prestamo.FechaDeDevolucion = prestamo.FechaDePrestamo?.AddDays(3);
+
                     _context.Update(prestamo);
                     await _context.SaveChangesAsync();
                 }
@@ -121,8 +126,9 @@ namespace Loboteva_v2.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["IdAdministrador"] = new SelectList(_context.Administradors, "Id", "Id", prestamo.IdAdministrador);
-            ViewData["IdLibro"] = new SelectList(_context.Libros, "Id", "Id", prestamo.IdLibro);
+            ViewData["IdAdministrador"] = new SelectList(_context.Administradors, "Id", "Nombre", prestamo.IdAdministrador);
+            ViewData["IdLibro"] = new SelectList(_context.Libros, "Id", "Titulo", prestamo.IdLibro);
+            ViewData["Estado"] = new SelectList(new[] { "Disponible", "No disponible" }, prestamo.Estado);
             return View(prestamo);
         }
 
@@ -151,23 +157,18 @@ namespace Loboteva_v2.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            if (_context.Prestamos == null)
-            {
-                return Problem("Entity set 'LobotecaContext.Prestamos'  is null.");
-            }
             var prestamo = await _context.Prestamos.FindAsync(id);
             if (prestamo != null)
             {
                 _context.Prestamos.Remove(prestamo);
+                await _context.SaveChangesAsync();
             }
-            
-            await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool PrestamoExists(int id)
         {
-          return (_context.Prestamos?.Any(e => e.Id == id)).GetValueOrDefault();
+            return _context.Prestamos.Any(e => e.Id == id);
         }
     }
 }

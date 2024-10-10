@@ -12,42 +12,27 @@
 <table class="table">
     <thead>
         <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Estado)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.IdAlumnoNavigation)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.IdPenalizacionNavigation)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.IdPrestamoNavigation)
-            </th>
+            <th>@Html.DisplayNameFor(model => model.Estado)</th>
+            <th>@Html.DisplayNameFor(model => model.IdAlumnoNavigation.Nombre)</th>
+            <th>@Html.DisplayNameFor(model => model.IdPenalizacionNavigation.Monto)</th>
+            <th>@Html.DisplayNameFor(model => model.IdPrestamoNavigation.IdLibroNavigation.Titulo)</th> <!-- Mostrar el título del libro -->
             <th></th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Estado)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.IdAlumnoNavigation.Id)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.IdPenalizacionNavigation.IdPenalizacion)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.IdPrestamoNavigation.Id)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.IdSancion">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.IdSancion">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.IdSancion">Delete</a>
-            </td>
-        </tr>
-}
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => item.Estado)</td>
+                <td>@Html.DisplayFor(modelItem => item.IdAlumnoNavigation.Nombre)</td>
+                <td>@Html.DisplayFor(modelItem => item.IdPenalizacionNavigation.Monto)</td>
+                <td>@Html.DisplayFor(modelItem => item.IdPrestamoNavigation.IdLibroNavigation.Titulo)</td> <!-- Mostrar el título del libro -->
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.IdSancion">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.IdSancion">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.IdSancion">Delete</a>
+                </td>
+            </tr>
+        }
     </tbody>
 </table>
