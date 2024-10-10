@@ -3,6 +3,9 @@ body {
     margin: 0;
     font-family: Arial, sans-serif;
     background-color: #f2f2f2;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
 /* Barra de navegación */
@@ -10,7 +13,6 @@ body {
     background-color: #781c2e;
     padding: 30px;
     color: white;
-    position: relative;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -81,14 +83,16 @@ body {
 /* Contenido principal */
 .main-section {
     padding: 20px;
+    flex: 1; /* Permite que el contenido principal ocupe el espacio restante */
 }
 
-    .main-section h2 {
-        text-align: center;
-        color: #781c2e;
-        margin-bottom: 20px;
-    }
+.section-title {
+    text-align: center;
+    color: #781c2e;
+    margin-bottom: 20px;
+}
 
+/* Tabla de carreras */
 .table-container {
     width: 80%;
     margin: 0 auto;
@@ -136,7 +140,6 @@ body {
 .btn-success {
     background-color: #781c2e;
     color: white;
-    margin-left: 18.2cm;
 }
 
 .btn-warning {
@@ -158,13 +161,12 @@ body {
     opacity: 0.8;
 }
 
-/* Footer */
+/* Pie de página */
 footer {
     background-color: #781c2e;
     color: white;
     text-align: center;
     padding: 10px;
-    margin-top: 320px;
 }
 
     footer p {
