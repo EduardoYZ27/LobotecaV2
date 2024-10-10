@@ -10,7 +10,7 @@
 <hr />
 <div class="row">
     <div class="col-md-4">
-        <form asp-action="Create">
+        <form asp-action="Create" enctype="multipart/form-data">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
             <div class="form-group">
@@ -46,10 +46,16 @@
                 <span asp-validation-for="Estado" class="text-danger"></span>
             </div>
 
+            <!-- File input for RutaImagen -->
             <div class="form-group">
                 <label asp-for="RutaImagen" class="control-label"></label>
-                <input asp-for="RutaImagen" class="form-control" />
+                <input asp-for="RutaImagen" type="file" class="form-control" id="fileInput" accept="image/*" />
                 <span asp-validation-for="RutaImagen" class="text-danger"></span>
+            </div>
+
+            <!-- Preview of selected image -->
+            <div class="form-group">
+                <img id="imagePreview" src="#" alt="Image Preview" style="display: none; max-width: 200px;" />
             </div>
 
             <div class="form-group">
@@ -82,7 +88,17 @@
 </div>
 
 @section Scripts {
-    @{
-        await Html.RenderPartialAsync("_ValidationScriptsPartial");
-    }
+    <script>
+        document.getElementById('fileInput').addEventListener('change', function (event) {
+            const reader = new FileReader();
+            const file = event.target.files[0];
+            if (file) {
+                reader.onload = function (e) {
+                    document.getElementById('imagePreview').style.display = 'block';
+                    document.getElementById('imagePreview').src = e.target.result;
+                }
+                reader.readAsDataURL(file);
+            }
+        });
+    </script>
 }
