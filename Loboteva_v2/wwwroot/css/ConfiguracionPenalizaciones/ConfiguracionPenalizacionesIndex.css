@@ -78,18 +78,16 @@ body {
     padding: 20px;
 }
 
-h2 {
-    text-align: center;
-    color: #781c2e;
-    margin-bottom: 20px;
-}
+    .main-section h2 {
+        text-align: center;
+        color: #781c2e;
+        margin-bottom: 20px;
+    }
 
 /* Tabla */
 .table-container {
     margin-top: 20px;
 }
-
-
 
 .table {
     width: 80%;
@@ -130,29 +128,30 @@ h2 {
     margin: 4px;
 }
 
-.btn-success {
-    background-color: #781c2e;
+.btn-primary {
+    background-color: #4caf50;
     color: white;
-    margin-left: 18.2cm;
 }
 
-    .btn-success:hover {
-        background-color: #993333;
-    }
-
 .btn-warning {
-    background-color: #ffcc00;
-    color: black;
+    background-color: #f39c12;
+    color: white;
 }
 
 .btn-info {
-    background-color: #17a2b8;
+    background-color: #3498db;
     color: white;
 }
 
 .btn-danger {
-    background-color: #f44336;
+    background-color: #e74c3c;
     color: white;
+}
+
+.btn-success {
+    background-color: #781c2e;
+    color: white;
+    margin-left: 18.2cm;
 }
 
 /* Pie de página */
@@ -160,9 +159,13 @@ footer {
     background-color: #781c2e;
     color: white;
     text-align: center;
-    padding: 10px;
-    margin-top: 265px;
+    padding: 20px;
+    margin-top: 305px;
 }
+
+    footer p {
+        margin: 10px 0;
+    }
 
 .social-icons a img {
     width: 30px;

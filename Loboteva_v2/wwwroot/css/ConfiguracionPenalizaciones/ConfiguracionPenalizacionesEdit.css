@@ -78,82 +78,62 @@ body {
     padding: 20px;
 }
 
-h2 {
+.section-title {
     text-align: center;
     color: #781c2e;
     margin-bottom: 20px;
 }
 
-/* Tabla */
-.table-container {
-    margin-top: 20px;
+/* Formulario */
+.formulario-altas {
+    width: 50%;
+    margin: 40px auto;
+    padding: 30px;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    background-color: #fff;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
 }
 
-
-
-.table {
-    width: 80%;
-    margin: 0 auto;
-    border-collapse: collapse;
-    background-color: white;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
-    overflow: hidden;
+.form-group {
+    margin-bottom: 15px;
 }
 
-    .table th {
-        background-color: #781c2e;
-        color: white;
-        padding: 12px;
+    .form-group label {
         font-size: 18px;
-        border-bottom: 2px solid #ddd;
+        margin-bottom: 10px;
+        color: #781c2e;
     }
 
-    .table td {
-        padding: 12px;
-        text-align: center;
-        font-size: 16px;
-        border-bottom: 1px solid #ddd;
+    .form-group input {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
     }
 
-    .table tr:hover {
-        background-color: #f2f2f2;
-    }
+.text-danger {
+    color: #d9534f;
+}
 
 /* Botones */
-.btn {
-    padding: 8px 16px;
+.botones {
+    display: flex;
+    justify-content: space-between;
+}
+
+.btn-success, .btn-secondary {
+    background-color: #781c2e;
+    color: white;
+    padding: 10px 20px;
     border-radius: 5px;
     border: none;
     cursor: pointer;
-    font-size: 14px;
-    margin: 4px;
 }
 
-.btn-success {
-    background-color: #781c2e;
-    color: white;
-    margin-left: 18.2cm;
-}
-
-    .btn-success:hover {
+    .btn-success:hover, .btn-secondary:hover {
         background-color: #993333;
     }
-
-.btn-warning {
-    background-color: #ffcc00;
-    color: black;
-}
-
-.btn-info {
-    background-color: #17a2b8;
-    color: white;
-}
-
-.btn-danger {
-    background-color: #f44336;
-    color: white;
-}
 
 /* Pie de página */
 footer {
@@ -161,7 +141,7 @@ footer {
     color: white;
     text-align: center;
     padding: 10px;
-    margin-top: 265px;
+    margin-top: 130px;
 }
 
 .social-icons a img {
