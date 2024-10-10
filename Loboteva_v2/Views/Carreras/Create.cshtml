@@ -1,10 +1,10 @@
 ﻿@model Loboteva_v2.Models.Carrera
 
 @{
-    ViewData["Title"] = "Create";
+    ViewData["Title"] = "Crear";
 }
 
-<h1>Create</h1>
+<h1>Crear</h1>
 
 <h4>Carrera</h4>
 <hr />
@@ -13,24 +13,27 @@
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="NombreDeLaCarrera" class="control-label"></label>
+                <label asp-for="NombreDeLaCarrera" class="control-label">Nombre de la carrera</label>
                 <input asp-for="NombreDeLaCarrera" class="form-control" />
                 <span asp-validation-for="NombreDeLaCarrera" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Estado" class="control-label"></label>
-                <input asp-for="Estado" class="form-control" />
+                <label asp-for="Estado" class="control-label">Estado</label>
+                <select asp-for="Estado" class="form-control">
+                    <option value="Disponible">Disponible</option>
+                    <option value="No disponible">No disponible</option>
+                </select>
                 <span asp-validation-for="Estado" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+                <input type="submit" value="Crear" class="btn btn-primary" />
             </div>
         </form>
     </div>
 </div>
 
 <div>
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Index">Regresar a la lista</a>
 </div>
 
 @section Scripts {
