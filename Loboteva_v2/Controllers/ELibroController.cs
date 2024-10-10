@@ -1,7 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -36,6 +37,7 @@ namespace Loboteva_v2.Controllers
             var eLibro = await _context.ELibros
                 .Include(e => e.IdEditorialNavigation)
                 .FirstOrDefaultAsync(m => m.Id == id);
+
             if (eLibro == null)
             {
                 return NotFound();
@@ -47,24 +49,50 @@ namespace Loboteva_v2.Controllers
         // GET: ELibro/Create
         public IActionResult Create()
         {
-            ViewData["IdEditorial"] = new SelectList(_context.Editorials, "Id", "Id");
+            ViewData["IdEditorial"] = new SelectList(_context.Editorials, "Id", "Nombre");
             return View();
         }
 
         // POST: ELibro/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Titulo,Isbn,FechaDePublicacion,Genero,Estado,RutaImagen,Archivo,FechaDeAlta,IdEditorial")] ELibro eLibro)
+        public async Task<IActionResult> Create([Bind("Id,Titulo,Isbn,FechaDePublicacion,Genero,Estado,RutaImagen,Archivo,FechaDeAlta,IdEditorial")] ELibro eLibro, IFormFile RutaImagen, IFormFile Archivo)
         {
             if (ModelState.IsValid)
             {
+                // Guardar la imagen si existe
+                if (RutaImagen != null && RutaImagen.Length > 0)
+                {
+                    var fileName = Path.GetFileName(RutaImagen.FileName);
+                    var filePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/images", fileName);
+
+                    using (var stream = new FileStream(filePath, FileMode.Create))
+                    {
+                        await RutaImagen.CopyToAsync(stream);
+                    }
+
+                    eLibro.RutaImagen = $"/images/{fileName}";
+                }
+
+                // Guardar el archivo PDF si existe
+                if (Archivo != null && Archivo.Length > 0)
+                {
+                    var fileName = Path.GetFileName(Archivo.FileName);
+                    var filePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/elibros", fileName);
+
+                    using (var stream = new FileStream(filePath, FileMode.Create))
+                    {
+                        await Archivo.CopyToAsync(stream);
+                    }
+
+                    eLibro.Archivo = $"/elibros/{fileName}";
+                }
+
                 _context.Add(eLibro);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["IdEditorial"] = new SelectList(_context.Editorials, "Id", "Id", eLibro.IdEditorial);
+            ViewData["IdEditorial"] = new SelectList(_context.Editorials, "Id", "Nombre", eLibro.IdEditorial);
             return View(eLibro);
         }
 
@@ -81,16 +109,14 @@ namespace Loboteva_v2.Controllers
             {
                 return NotFound();
             }
-            ViewData["IdEditorial"] = new SelectList(_context.Editorials, "Id", "Id", eLibro.IdEditorial);
+            ViewData["IdEditorial"] = new SelectList(_context.Editorials, "Id", "Nombre", eLibro.IdEditorial);
             return View(eLibro);
         }
 
         // POST: ELibro/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Titulo,Isbn,FechaDePublicacion,Genero,Estado,RutaImagen,Archivo,FechaDeAlta,IdEditorial")] ELibro eLibro)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Titulo,Isbn,FechaDePublicacion,Genero,Estado,RutaImagen,Archivo,FechaDeAlta,IdEditorial")] ELibro eLibro, IFormFile RutaImagen, IFormFile Archivo)
         {
             if (id != eLibro.Id)
             {
@@ -101,6 +127,34 @@ namespace Loboteva_v2.Controllers
             {
                 try
                 {
+                    // Guardar la imagen si existe
+                    if (RutaImagen != null && RutaImagen.Length > 0)
+                    {
+                        var fileName = Path.GetFileName(RutaImagen.FileName);
+                        var filePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/images", fileName);
+
+                        using (var stream = new FileStream(filePath, FileMode.Create))
+                        {
+                            await RutaImagen.CopyToAsync(stream);
+                        }
+
+                        eLibro.RutaImagen = $"/images/{fileName}";
+                    }
+
+                    // Guardar el archivo PDF si existe
+                    if (Archivo != null && Archivo.Length > 0)
+                    {
+                        var fileName = Path.GetFileName(Archivo.FileName);
+                        var filePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/elibros", fileName);
+
+                        using (var stream = new FileStream(filePath, FileMode.Create))
+                        {
+                            await Archivo.CopyToAsync(stream);
+                        }
+
+                        eLibro.Archivo = $"/elibros/{fileName}";
+                    }
+
                     _context.Update(eLibro);
                     await _context.SaveChangesAsync();
                 }
@@ -117,7 +171,7 @@ namespace Loboteva_v2.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["IdEditorial"] = new SelectList(_context.Editorials, "Id", "Id", eLibro.IdEditorial);
+            ViewData["IdEditorial"] = new SelectList(_context.Editorials, "Id", "Nombre", eLibro.IdEditorial);
             return View(eLibro);
         }
 
@@ -147,21 +201,21 @@ namespace Loboteva_v2.Controllers
         {
             if (_context.ELibros == null)
             {
-                return Problem("Entity set 'LobotecaContext.ELibros'  is null.");
+                return Problem("Entity set 'LobotecaContext.ELibros' is null.");
             }
             var eLibro = await _context.ELibros.FindAsync(id);
             if (eLibro != null)
             {
                 _context.ELibros.Remove(eLibro);
             }
-            
+
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool ELibroExists(int id)
         {
-          return (_context.ELibros?.Any(e => e.Id == id)).GetValueOrDefault();
+            return (_context.ELibros?.Any(e => e.Id == id)).GetValueOrDefault();
         }
     }
 }

@@ -1,7 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -25,6 +26,52 @@ namespace Loboteva_v2.Controllers
             return View(await lobotecaContext.ToListAsync());
         }
 
+        // GET: Revista/Create
+        public IActionResult Create()
+        {
+            ViewData["IdEditorial"] = new SelectList(_context.Editorials, "Id", "Nombre");
+            return View();
+        }
+
+        // POST: Revista/Create
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Create([Bind("Id,Titulo,Issn,FechaDePublicacion,Genero,Estado,RutaImagen,Archivo,FechaDeAlta,IdEditorial")] Revistum revistum, IFormFile RutaImagen, IFormFile Archivo)
+        {
+            if (ModelState.IsValid)
+            {
+                // Guardar Imagen
+                if (RutaImagen != null && RutaImagen.Length > 0)
+                {
+                    var fileNameImagen = Path.GetFileName(RutaImagen.FileName);
+                    var filePathImagen = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/images", fileNameImagen);
+                    using (var stream = new FileStream(filePathImagen, FileMode.Create))
+                    {
+                        await RutaImagen.CopyToAsync(stream);
+                    }
+                    revistum.RutaImagen = $"/images/{fileNameImagen}";
+                }
+
+                // Guardar Archivo PDF
+                if (Archivo != null && Archivo.Length > 0)
+                {
+                    var fileNameArchivo = Path.GetFileName(Archivo.FileName);
+                    var filePathArchivo = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/pdfs", fileNameArchivo);
+                    using (var stream = new FileStream(filePathArchivo, FileMode.Create))
+                    {
+                        await Archivo.CopyToAsync(stream);
+                    }
+                    revistum.Archivo = $"/pdfs/{fileNameArchivo}";
+                }
+
+                _context.Add(revistum);
+                await _context.SaveChangesAsync();
+                return RedirectToAction(nameof(Index));
+            }
+            ViewData["IdEditorial"] = new SelectList(_context.Editorials, "Id", "Nombre", revistum.IdEditorial);
+            return View(revistum);
+        }
+
         // GET: Revista/Details/5
         public async Task<IActionResult> Details(int? id)
         {
@@ -44,30 +91,6 @@ namespace Loboteva_v2.Controllers
             return View(revistum);
         }
 
-        // GET: Revista/Create
-        public IActionResult Create()
-        {
-            ViewData["IdEditorial"] = new SelectList(_context.Editorials, "Id", "Id");
-            return View();
-        }
-
-        // POST: Revista/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Titulo,Issn,FechaDePublicacion,Genero,Estado,RutaImagen,Archivo,FechaDeAlta,IdEditorial")] Revistum revistum)
-        {
-            if (ModelState.IsValid)
-            {
-                _context.Add(revistum);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
-            }
-            ViewData["IdEditorial"] = new SelectList(_context.Editorials, "Id", "Id", revistum.IdEditorial);
-            return View(revistum);
-        }
-
         // GET: Revista/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
@@ -81,16 +104,14 @@ namespace Loboteva_v2.Controllers
             {
                 return NotFound();
             }
-            ViewData["IdEditorial"] = new SelectList(_context.Editorials, "Id", "Id", revistum.IdEditorial);
+            ViewData["IdEditorial"] = new SelectList(_context.Editorials, "Id", "Nombre", revistum.IdEditorial);
             return View(revistum);
         }
 
         // POST: Revista/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Titulo,Issn,FechaDePublicacion,Genero,Estado,RutaImagen,Archivo,FechaDeAlta,IdEditorial")] Revistum revistum)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Titulo,Issn,FechaDePublicacion,Genero,Estado,RutaImagen,Archivo,FechaDeAlta,IdEditorial")] Revistum revistum, IFormFile RutaImagen, IFormFile Archivo)
         {
             if (id != revistum.Id)
             {
@@ -101,6 +122,30 @@ namespace Loboteva_v2.Controllers
             {
                 try
                 {
+                    // Guardar Imagen si hay un cambio
+                    if (RutaImagen != null && RutaImagen.Length > 0)
+                    {
+                        var fileNameImagen = Path.GetFileName(RutaImagen.FileName);
+                        var filePathImagen = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/images", fileNameImagen);
+                        using (var stream = new FileStream(filePathImagen, FileMode.Create))
+                        {
+                            await RutaImagen.CopyToAsync(stream);
+                        }
+                        revistum.RutaImagen = $"/images/{fileNameImagen}";
+                    }
+
+                    // Guardar Archivo PDF si hay un cambio
+                    if (Archivo != null && Archivo.Length > 0)
+                    {
+                        var fileNameArchivo = Path.GetFileName(Archivo.FileName);
+                        var filePathArchivo = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/pdfs", fileNameArchivo);
+                        using (var stream = new FileStream(filePathArchivo, FileMode.Create))
+                        {
+                            await Archivo.CopyToAsync(stream);
+                        }
+                        revistum.Archivo = $"/pdfs/{fileNameArchivo}";
+                    }
+
                     _context.Update(revistum);
                     await _context.SaveChangesAsync();
                 }
@@ -117,7 +162,7 @@ namespace Loboteva_v2.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["IdEditorial"] = new SelectList(_context.Editorials, "Id", "Id", revistum.IdEditorial);
+            ViewData["IdEditorial"] = new SelectList(_context.Editorials, "Id", "Nombre", revistum.IdEditorial);
             return View(revistum);
         }
 
@@ -147,21 +192,21 @@ namespace Loboteva_v2.Controllers
         {
             if (_context.Revista == null)
             {
-                return Problem("Entity set 'LobotecaContext.Revista'  is null.");
+                return Problem("Entity set 'LobotecaContext.Revista' is null.");
             }
             var revistum = await _context.Revista.FindAsync(id);
             if (revistum != null)
             {
                 _context.Revista.Remove(revistum);
+                await _context.SaveChangesAsync();
             }
-            
-            await _context.SaveChangesAsync();
+
             return RedirectToAction(nameof(Index));
         }
 
         private bool RevistumExists(int id)
         {
-          return (_context.Revista?.Any(e => e.Id == id)).GetValueOrDefault();
+            return (_context.Revista?.Any(e => e.Id == id)).GetValueOrDefault();
         }
     }
 }
