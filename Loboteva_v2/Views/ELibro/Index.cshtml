@@ -4,11 +4,12 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
+<h1>ELibros</h1>
 
 <p>
-    <a asp-action="Create">Create New</a>
+    <a asp-action="Create" class="btn btn-primary">Create New</a>
 </p>
+
 <table class="table">
     <thead>
         <tr>
@@ -43,41 +44,56 @@
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Titulo)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Isbn)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.FechaDePublicacion)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Genero)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Estado)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.RutaImagen)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Archivo)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.FechaDeAlta)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.IdEditorialNavigation.Id)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-            </td>
-        </tr>
-}
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Titulo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Isbn)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FechaDePublicacion)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Genero)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Estado)
+                </td>
+                <td>
+                    @if (item.RutaImagen != null)
+                    {
+                        <img src="@item.RutaImagen" alt="Imagen del ELibro" style="max-width: 100px;" />
+                    }
+                    else
+                    {
+                        <span>No image available</span>
+                    }
+                </td>
+                <td>
+                    @if (item.Archivo != null)
+                    {
+                        <a href="@item.Archivo" target="_blank">Ver PDF</a>
+                    }
+                    else
+                    {
+                        <span>No file available</span>
+                    }
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FechaDeAlta)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IdEditorialNavigation.Nombre)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-warning">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-info">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger">Delete</a>
+                </td>
+            </tr>
+        }
     </tbody>
 </table>

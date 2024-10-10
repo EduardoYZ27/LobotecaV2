@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
@@ -21,7 +20,9 @@ namespace Loboteva_v2.Controllers
         // GET: AutorLibro
         public async Task<IActionResult> Index()
         {
-            var lobotecaContext = _context.AutorLibros.Include(a => a.IdAutorNavigation).Include(a => a.IdLibroNavigation);
+            var lobotecaContext = _context.AutorLibros
+                .Include(a => a.IdAutorNavigation)
+                .Include(a => a.IdLibroNavigation);
             return View(await lobotecaContext.ToListAsync());
         }
 
@@ -48,14 +49,12 @@ namespace Loboteva_v2.Controllers
         // GET: AutorLibro/Create
         public IActionResult Create()
         {
-            ViewData["IdAutor"] = new SelectList(_context.Autors, "Id", "Id");
-            ViewData["IdLibro"] = new SelectList(_context.Libros, "Id", "Id");
+            ViewData["IdAutor"] = new SelectList(_context.Autors, "Id", "Nombre");
+            ViewData["IdLibro"] = new SelectList(_context.Libros, "Id", "Titulo");
             return View();
         }
 
         // POST: AutorLibro/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id,IdAutor,IdLibro")] AutorLibro autorLibro)
@@ -66,8 +65,8 @@ namespace Loboteva_v2.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["IdAutor"] = new SelectList(_context.Autors, "Id", "Id", autorLibro.IdAutor);
-            ViewData["IdLibro"] = new SelectList(_context.Libros, "Id", "Id", autorLibro.IdLibro);
+            ViewData["IdAutor"] = new SelectList(_context.Autors, "Id", "Nombre", autorLibro.IdAutor);
+            ViewData["IdLibro"] = new SelectList(_context.Libros, "Id", "Titulo", autorLibro.IdLibro);
             return View(autorLibro);
         }
 
@@ -84,14 +83,12 @@ namespace Loboteva_v2.Controllers
             {
                 return NotFound();
             }
-            ViewData["IdAutor"] = new SelectList(_context.Autors, "Id", "Id", autorLibro.IdAutor);
-            ViewData["IdLibro"] = new SelectList(_context.Libros, "Id", "Id", autorLibro.IdLibro);
+            ViewData["IdAutor"] = new SelectList(_context.Autors, "Id", "Nombre", autorLibro.IdAutor);
+            ViewData["IdLibro"] = new SelectList(_context.Libros, "Id", "Titulo", autorLibro.IdLibro);
             return View(autorLibro);
         }
 
         // POST: AutorLibro/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("Id,IdAutor,IdLibro")] AutorLibro autorLibro)
@@ -121,8 +118,8 @@ namespace Loboteva_v2.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["IdAutor"] = new SelectList(_context.Autors, "Id", "Id", autorLibro.IdAutor);
-            ViewData["IdLibro"] = new SelectList(_context.Libros, "Id", "Id", autorLibro.IdLibro);
+            ViewData["IdAutor"] = new SelectList(_context.Autors, "Id", "Nombre", autorLibro.IdAutor);
+            ViewData["IdLibro"] = new SelectList(_context.Libros, "Id", "Titulo", autorLibro.IdLibro);
             return View(autorLibro);
         }
 
@@ -151,23 +148,19 @@ namespace Loboteva_v2.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            if (_context.AutorLibros == null)
-            {
-                return Problem("Entity set 'LobotecaContext.AutorLibros'  is null.");
-            }
             var autorLibro = await _context.AutorLibros.FindAsync(id);
             if (autorLibro != null)
             {
                 _context.AutorLibros.Remove(autorLibro);
             }
-            
+
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool AutorLibroExists(int id)
         {
-          return (_context.AutorLibros?.Any(e => e.Id == id)).GetValueOrDefault();
+            return (_context.AutorLibros?.Any(e => e.Id == id)).GetValueOrDefault();
         }
     }
 }

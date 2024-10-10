@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -37,25 +35,24 @@ namespace Loboteva_v2.Controllers
                 .Include(a => a.IdAutorNavigation)
                 .Include(a => a.IdRevistaNavigation)
                 .FirstOrDefaultAsync(m => m.Id == id);
+
             if (autorRevistum == null)
             {
                 return NotFound();
             }
 
-            return View(autorRevistum);
+            return View(autorRevistum); // Aquí debes pasar un solo objeto, no una colección
         }
 
         // GET: AutorRevista/Create
         public IActionResult Create()
         {
-            ViewData["IdAutor"] = new SelectList(_context.Autors, "Id", "Id");
-            ViewData["IdRevista"] = new SelectList(_context.Revista, "Id", "Id");
+            ViewData["IdAutor"] = new SelectList(_context.Autors, "Id", "Nombre"); // Adjusted to display "Nombre"
+            ViewData["IdRevista"] = new SelectList(_context.Revista, "Id", "Titulo"); // Adjusted to display "Titulo"
             return View();
         }
 
         // POST: AutorRevista/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id,IdAutor,IdRevista")] AutorRevistum autorRevistum)
@@ -66,8 +63,8 @@ namespace Loboteva_v2.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["IdAutor"] = new SelectList(_context.Autors, "Id", "Id", autorRevistum.IdAutor);
-            ViewData["IdRevista"] = new SelectList(_context.Revista, "Id", "Id", autorRevistum.IdRevista);
+            ViewData["IdAutor"] = new SelectList(_context.Autors, "Id", "Nombre", autorRevistum.IdAutor); // Adjusted
+            ViewData["IdRevista"] = new SelectList(_context.Revista, "Id", "Titulo", autorRevistum.IdRevista); // Adjusted
             return View(autorRevistum);
         }
 
@@ -84,14 +81,12 @@ namespace Loboteva_v2.Controllers
             {
                 return NotFound();
             }
-            ViewData["IdAutor"] = new SelectList(_context.Autors, "Id", "Id", autorRevistum.IdAutor);
-            ViewData["IdRevista"] = new SelectList(_context.Revista, "Id", "Id", autorRevistum.IdRevista);
+            ViewData["IdAutor"] = new SelectList(_context.Autors, "Id", "Nombre", autorRevistum.IdAutor); // Adjusted
+            ViewData["IdRevista"] = new SelectList(_context.Revista, "Id", "Titulo", autorRevistum.IdRevista); // Adjusted
             return View(autorRevistum);
         }
 
         // POST: AutorRevista/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("Id,IdAutor,IdRevista")] AutorRevistum autorRevistum)
@@ -121,8 +116,8 @@ namespace Loboteva_v2.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["IdAutor"] = new SelectList(_context.Autors, "Id", "Id", autorRevistum.IdAutor);
-            ViewData["IdRevista"] = new SelectList(_context.Revista, "Id", "Id", autorRevistum.IdRevista);
+            ViewData["IdAutor"] = new SelectList(_context.Autors, "Id", "Nombre", autorRevistum.IdAutor); // Adjusted
+            ViewData["IdRevista"] = new SelectList(_context.Revista, "Id", "Titulo", autorRevistum.IdRevista); // Adjusted
             return View(autorRevistum);
         }
 
@@ -153,21 +148,21 @@ namespace Loboteva_v2.Controllers
         {
             if (_context.AutorRevista == null)
             {
-                return Problem("Entity set 'LobotecaContext.AutorRevista'  is null.");
+                return Problem("Entity set 'LobotecaContext.AutorRevista' is null.");
             }
             var autorRevistum = await _context.AutorRevista.FindAsync(id);
             if (autorRevistum != null)
             {
                 _context.AutorRevista.Remove(autorRevistum);
             }
-            
+
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool AutorRevistumExists(int id)
         {
-          return (_context.AutorRevista?.Any(e => e.Id == id)).GetValueOrDefault();
+            return (_context.AutorRevista?.Any(e => e.Id == id)).GetValueOrDefault();
         }
     }
 }
