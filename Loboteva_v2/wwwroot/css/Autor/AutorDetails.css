@@ -84,6 +84,15 @@ body {
     margin-bottom: 20px;
 }
 
+.row {
+    display: flex;
+    justify-content: center;
+}
+
+dt, dd {
+    font-size: 18px;
+}
+
 /* Formulario de detalles */
 .formulario-altas {
     width: 50%;

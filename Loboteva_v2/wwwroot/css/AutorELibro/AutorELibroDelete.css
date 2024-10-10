@@ -84,21 +84,36 @@ body {
     margin-bottom: 20px;
 }
 
-.row {
-    display: flex;
-    justify-content: center;
+.main-section h3 {
+    text-align: center;
 }
 
-dt, dd {
-    font-size: 18px;
+/* Detalles */
+.detalles-altas {
+    width: 50%;
+    margin: 40px auto;
+    padding: 30px;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    background-color: #fff;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
 }
+
+    .detalles-altas dl dt {
+        font-weight: bold;
+        color: #781c2e;
+        font-size: 18px;
+    }
+
+    .detalles-altas dl dd {
+        margin-bottom: 20px;
+    }
 
 /* Botones */
 .botones {
     display: flex;
     justify-content: space-between;
-    width: 30%;
-    margin: 20px auto;
+    margin-top: 20px;
 }
 
 .btn-danger, .btn-secondary {
@@ -120,7 +135,7 @@ footer {
     color: white;
     text-align: center;
     padding: 10px;
-    margin-top: 130px;
+    margin-top: 102px;
 }
 
 .social-icons a img {

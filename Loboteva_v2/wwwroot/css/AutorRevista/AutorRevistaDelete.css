@@ -84,6 +84,10 @@ body {
     margin-bottom: 20px;
 }
 
+.main-section h3 {
+    text-align: center;
+}
+
 /* Detalles */
 .detalles-altas {
     width: 50%;
@@ -131,7 +135,7 @@ footer {
     color: white;
     text-align: center;
     padding: 10px;
-    margin-top: 55px;
+    margin-top: 100px;
 }
 
 .social-icons a img {
@@ -142,5 +146,3 @@ footer {
     .social-icons a img:hover {
         opacity: 0.7;
     }
-body {
-}
