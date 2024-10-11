@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -21,7 +19,11 @@ namespace Loboteva_v2.Controllers
         // GET: Sanciones
         public async Task<IActionResult> Index()
         {
-            var lobotecaContext = _context.Sanciones.Include(s => s.IdAlumnoNavigation).Include(s => s.IdPenalizacionNavigation).Include(s => s.IdPrestamoNavigation);
+            var lobotecaContext = _context.Sanciones
+                .Include(s => s.IdAlumnoNavigation)
+                .Include(s => s.IdPenalizacionNavigation)
+                .Include(s => s.IdPrestamoNavigation)
+                .ThenInclude(p => p.IdLibroNavigation); // Include the related Libro data
             return View(await lobotecaContext.ToListAsync());
         }
 
@@ -37,6 +39,7 @@ namespace Loboteva_v2.Controllers
                 .Include(s => s.IdAlumnoNavigation)
                 .Include(s => s.IdPenalizacionNavigation)
                 .Include(s => s.IdPrestamoNavigation)
+                .ThenInclude(p => p.IdLibroNavigation) // Include the related Libro data
                 .FirstOrDefaultAsync(m => m.IdSancion == id);
             if (sancione == null)
             {
@@ -49,15 +52,14 @@ namespace Loboteva_v2.Controllers
         // GET: Sanciones/Create
         public IActionResult Create()
         {
-            ViewData["IdAlumno"] = new SelectList(_context.Alumnos, "Id", "Id");
-            ViewData["IdPenalizacion"] = new SelectList(_context.ConfiguracionPenalizaciones, "IdPenalizacion", "IdPenalizacion");
-            ViewData["IdPrestamo"] = new SelectList(_context.Prestamos, "Id", "Id");
+            ViewData["IdAlumno"] = new SelectList(_context.Alumnos, "Id", "Nombre");
+            ViewData["IdPenalizacion"] = new SelectList(_context.ConfiguracionPenalizaciones, "IdPenalizacion", "Monto");
+            ViewData["IdPrestamo"] = new SelectList(_context.Prestamos.Include(p => p.IdLibroNavigation), "Id", "IdLibroNavigation.Titulo"); // Show Titulo
+            ViewData["Estado"] = new SelectList(new[] { "Disponible", "No disponible" });
             return View();
         }
 
         // POST: Sanciones/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("IdSancion,Estado,IdAlumno,IdPrestamo,IdPenalizacion")] Sancione sancione)
@@ -68,9 +70,10 @@ namespace Loboteva_v2.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["IdAlumno"] = new SelectList(_context.Alumnos, "Id", "Id", sancione.IdAlumno);
-            ViewData["IdPenalizacion"] = new SelectList(_context.ConfiguracionPenalizaciones, "IdPenalizacion", "IdPenalizacion", sancione.IdPenalizacion);
-            ViewData["IdPrestamo"] = new SelectList(_context.Prestamos, "Id", "Id", sancione.IdPrestamo);
+            ViewData["IdAlumno"] = new SelectList(_context.Alumnos, "Id", "Nombre", sancione.IdAlumno);
+            ViewData["IdPenalizacion"] = new SelectList(_context.ConfiguracionPenalizaciones, "IdPenalizacion", "Monto", sancione.IdPenalizacion);
+            ViewData["IdPrestamo"] = new SelectList(_context.Prestamos.Include(p => p.IdLibroNavigation), "Id", "IdLibroNavigation.Titulo", sancione.IdPrestamo); // Show Titulo
+            ViewData["Estado"] = new SelectList(new[] { "Disponible", "No disponible" }, sancione.Estado);
             return View(sancione);
         }
 
@@ -87,15 +90,14 @@ namespace Loboteva_v2.Controllers
             {
                 return NotFound();
             }
-            ViewData["IdAlumno"] = new SelectList(_context.Alumnos, "Id", "Id", sancione.IdAlumno);
-            ViewData["IdPenalizacion"] = new SelectList(_context.ConfiguracionPenalizaciones, "IdPenalizacion", "IdPenalizacion", sancione.IdPenalizacion);
-            ViewData["IdPrestamo"] = new SelectList(_context.Prestamos, "Id", "Id", sancione.IdPrestamo);
+            ViewData["IdAlumno"] = new SelectList(_context.Alumnos, "Id", "Nombre", sancione.IdAlumno);
+            ViewData["IdPenalizacion"] = new SelectList(_context.ConfiguracionPenalizaciones, "IdPenalizacion", "Monto", sancione.IdPenalizacion);
+            ViewData["IdPrestamo"] = new SelectList(_context.Prestamos.Include(p => p.IdLibroNavigation), "Id", "IdLibroNavigation.Titulo", sancione.IdPrestamo); // Show Titulo
+            ViewData["Estado"] = new SelectList(new[] { "Disponible", "No disponible" }, sancione.Estado);
             return View(sancione);
         }
 
         // POST: Sanciones/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("IdSancion,Estado,IdAlumno,IdPrestamo,IdPenalizacion")] Sancione sancione)
@@ -125,9 +127,10 @@ namespace Loboteva_v2.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["IdAlumno"] = new SelectList(_context.Alumnos, "Id", "Id", sancione.IdAlumno);
-            ViewData["IdPenalizacion"] = new SelectList(_context.ConfiguracionPenalizaciones, "IdPenalizacion", "IdPenalizacion", sancione.IdPenalizacion);
-            ViewData["IdPrestamo"] = new SelectList(_context.Prestamos, "Id", "Id", sancione.IdPrestamo);
+            ViewData["IdAlumno"] = new SelectList(_context.Alumnos, "Id", "Nombre", sancione.IdAlumno);
+            ViewData["IdPenalizacion"] = new SelectList(_context.ConfiguracionPenalizaciones, "IdPenalizacion", "Descripcion", sancione.IdPenalizacion);
+            ViewData["IdPrestamo"] = new SelectList(_context.Prestamos.Include(p => p.IdLibroNavigation), "Id", "IdLibroNavigation.Titulo", sancione.IdPrestamo); // Show Titulo
+            ViewData["Estado"] = new SelectList(new[] { "Disponible", "No disponible" }, sancione.Estado);
             return View(sancione);
         }
 
@@ -143,6 +146,7 @@ namespace Loboteva_v2.Controllers
                 .Include(s => s.IdAlumnoNavigation)
                 .Include(s => s.IdPenalizacionNavigation)
                 .Include(s => s.IdPrestamoNavigation)
+                .ThenInclude(p => p.IdLibroNavigation) // Include the related Libro data
                 .FirstOrDefaultAsync(m => m.IdSancion == id);
             if (sancione == null)
             {
@@ -157,23 +161,18 @@ namespace Loboteva_v2.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            if (_context.Sanciones == null)
-            {
-                return Problem("Entity set 'LobotecaContext.Sanciones'  is null.");
-            }
             var sancione = await _context.Sanciones.FindAsync(id);
             if (sancione != null)
             {
                 _context.Sanciones.Remove(sancione);
+                await _context.SaveChangesAsync();
             }
-            
-            await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool SancioneExists(int id)
         {
-          return (_context.Sanciones?.Any(e => e.IdSancion == id)).GetValueOrDefault();
+            return _context.Sanciones.Any(e => e.IdSancion == id);
         }
     }
 }

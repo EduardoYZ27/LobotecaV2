@@ -10,30 +10,17 @@
     <h4>Sancione</h4>
     <hr />
     <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Estado)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Estado)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.IdAlumnoNavigation)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.IdAlumnoNavigation.Id)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.IdPenalizacionNavigation)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.IdPenalizacionNavigation.IdPenalizacion)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.IdPrestamoNavigation)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.IdPrestamoNavigation.Id)
-        </dd>
+        <dt class="col-sm-2">@Html.DisplayNameFor(model => model.Estado)</dt>
+        <dd class="col-sm-10">@Html.DisplayFor(model => model.Estado)</dd>
+
+        <dt class="col-sm-2">@Html.DisplayNameFor(model => model.IdAlumnoNavigation.Nombre)</dt>
+        <dd class="col-sm-10">@Html.DisplayFor(model => model.IdAlumnoNavigation.Nombre)</dd>
+
+        <dt class="col-sm-2">@Html.DisplayNameFor(model => model.IdPenalizacionNavigation.Monto)</dt>
+        <dd class="col-sm-10">@Html.DisplayFor(model => model.IdPenalizacionNavigation.Monto)</dd>
+
+        <dt class="col-sm-2">@Html.DisplayNameFor(model => model.IdPrestamoNavigation.IdLibroNavigation.Titulo)</dt> <!-- Mostrar el título del libro -->
+        <dd class="col-sm-10">@Html.DisplayFor(model => model.IdPrestamoNavigation.IdLibroNavigation.Titulo)</dd> <!-- Mostrar el título del libro -->
     </dl>
 </div>
 <div>
