@@ -1,104 +1,136 @@
 ﻿@model Loboteva_v2.Models.Libro
 
 @{
-    ViewData["Title"] = "Create";
+    Layout = null;
 }
 
-<h1>Create</h1>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crear Libro - Loboteca</title>
+    <link rel="stylesheet" href="~/css/Libro/LibroCreate.css" />
+</head>
+<body>
+    <!-- Barra de navegación -->
+    <header>
+        <nav class="navbar">
+            <ul class="logo-left">
+                <li>
+                    <img src="~/images/logo.png" alt="Logo" class="logo">
+                </li>
+            </ul>
+            <h1>LOBOTECA</h1>
+            <ul class="account-right">
+                <li>
+                    <img src="~/images/cuenta.png" alt="Cuenta" class="icono">
+                    <a href="@Url.Action("Perfil", "Perfil")">Cuenta</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
 
-<h4>Libro</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Create" enctype="multipart/form-data">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <!-- Contenido principal -->
+    <main class="main-section">
+        <h2 class="section-title">Crear Libro</h2>
 
-            <div class="form-group">
-                <label asp-for="Titulo" class="control-label"></label>
-                <input asp-for="Titulo" class="form-control" />
-                <span asp-validation-for="Titulo" class="text-danger"></span>
-            </div>
+        <div class="formulario-container">
+            <form asp-action="Create" enctype="multipart/form-data">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
-            <div class="form-group">
-                <label asp-for="Isbn" class="control-label"></label>
-                <input asp-for="Isbn" class="form-control" />
-                <span asp-validation-for="Isbn" class="text-danger"></span>
-            </div>
+                <div class="form-group">
+                    <label asp-for="Titulo" class="control-label"></label>
+                    <input asp-for="Titulo" class="form-control" />
+                    <span asp-validation-for="Titulo" class="text-danger"></span>
+                </div>
 
-            <div class="form-group">
-                <label asp-for="FechaDePublicacion" class="control-label"></label>
-                <input asp-for="FechaDePublicacion" type="date" class="form-control" />
-                <span asp-validation-for="FechaDePublicacion" class="text-danger"></span>
-            </div>
+                <div class="form-group">
+                    <label asp-for="Isbn" class="control-label"></label>
+                    <input asp-for="Isbn" class="form-control" />
+                    <span asp-validation-for="Isbn" class="text-danger"></span>
+                </div>
 
-            <div class="form-group">
-                <label asp-for="Genero" class="control-label"></label>
-                <input asp-for="Genero" class="form-control" />
-                <span asp-validation-for="Genero" class="text-danger"></span>
-            </div>
+                <div class="form-group">
+                    <label asp-for="FechaDePublicacion" class="control-label"></label>
+                    <input asp-for="FechaDePublicacion" type="date" class="form-control" />
+                    <span asp-validation-for="FechaDePublicacion" class="text-danger"></span>
+                </div>
 
-            <div class="form-group">
-                <label asp-for="Estado" class="control-label"></label>
-                <select asp-for="Estado" class="form-control">
-                    <option value="Disponible">Disponible</option>
-                    <option value="No disponible">No disponible</option>
-                </select>
-                <span asp-validation-for="Estado" class="text-danger"></span>
-            </div>
+                <div class="form-group">
+                    <label asp-for="Genero" class="control-label"></label>
+                    <input asp-for="Genero" class="form-control" />
+                    <span asp-validation-for="Genero" class="text-danger"></span>
+                </div>
 
-            <!-- File input for RutaImagen -->
-            <div class="form-group">
-                <label asp-for="RutaImagen" class="control-label"></label>
-                <input asp-for="RutaImagen" type="file" class="form-control" id="fileInput" accept="image/*" />
-                <span asp-validation-for="RutaImagen" class="text-danger"></span>
-            </div>
+                <div class="form-group">
+                    <label asp-for="Estado" class="control-label"></label>
+                    <select asp-for="Estado" class="form-control">
+                        <option value="Disponible">Disponible</option>
+                        <option value="No disponible">No disponible</option>
+                    </select>
+                    <span asp-validation-for="Estado" class="text-danger"></span>
+                </div>
 
-            <!-- Preview of selected image -->
-            <div class="form-group">
-                <img id="imagePreview" src="#" alt="Image Preview" style="display: none; max-width: 200px;" />
-            </div>
+                <div class="form-group">
+                    <label asp-for="RutaImagen" class="control-label"></label>
+                    <input asp-for="RutaImagen" type="file" class="form-control" id="fileInput" accept="image/*" />
+                    <img id="imagePreview" src="#" alt="Previsualización de imagen" style="display: none; max-width: 200px; margin-top: 10px;" />
+                    <span asp-validation-for="RutaImagen" class="text-danger"></span>
+                </div>
 
-            <div class="form-group">
-                <label asp-for="Stock" class="control-label"></label>
-                <input asp-for="Stock" class="form-control" />
-                <span asp-validation-for="Stock" class="text-danger"></span>
-            </div>
+                <div class="form-group">
+                    <label asp-for="Stock" class="control-label"></label>
+                    <input asp-for="Stock" class="form-control" />
+                    <span asp-validation-for="Stock" class="text-danger"></span>
+                </div>
 
-            <div class="form-group">
-                <label asp-for="FechaDeAlta" class="control-label"></label>
-                <input asp-for="FechaDeAlta" type="date" class="form-control" />
-                <span asp-validation-for="FechaDeAlta" class="text-danger"></span>
-            </div>
+                <div class="form-group">
+                    <label asp-for="FechaDeAlta" class="control-label"></label>
+                    <input asp-for="FechaDeAlta" type="date" class="form-control" />
+                    <span asp-validation-for="FechaDeAlta" class="text-danger"></span>
+                </div>
 
-            <div class="form-group">
-                <label asp-for="IdEditorial" class="control-label"></label>
-                <select asp-for="IdEditorial" class="form-control" asp-items="ViewBag.IdEditorial"></select>
-                <span asp-validation-for="IdEditorial" class="text-danger"></span>
-            </div>
+                <div class="form-group">
+                    <label asp-for="IdEditorial" class="control-label"></label>
+                    <select asp-for="IdEditorial" class="form-control" asp-items="ViewBag.IdEditorial"></select>
+                    <span asp-validation-for="IdEditorial" class="text-danger"></span>
+                </div>
 
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
-            </div>
-        </form>
-    </div>
-</div>
+                <div class="form-group">
+                    <input type="submit" value="Crear" class="btn btn-primary" />
+                </div>
+                <div class="form-group">
+                    <a asp-action="Index" class="btn btn-secondary">Regresar a la lista</a>
+                </div>
+            </form>
+        </div>
+    </main>
 
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
+    <!-- Pie de página -->
+    <footer>
+        <p>&copy; Derechos Reservados Universidad Politécnica del Valle de Toluca</p>
+        <div class="social-icons">
+            <a href="#"><img src="~/images/facebook.png" alt="Facebook"></a>
+            <a href="#"><img src="~/images/instagram.png" alt="Instagram"></a>
+            <a href="#"><img src="~/images/email.png" alt="Correo"></a>
+        </div>
+    </footer>
 
-@section Scripts {
-    <script>
-        document.getElementById('fileInput').addEventListener('change', function (event) {
-            const reader = new FileReader();
-            const file = event.target.files[0];
-            if (file) {
-                reader.onload = function (e) {
-                    document.getElementById('imagePreview').style.display = 'block';
-                    document.getElementById('imagePreview').src = e.target.result;
+    @section Scripts {
+        <script type="text/javascript">
+            document.getElementById('fileInput').addEventListener('change', function (event) {
+                const reader = new FileReader();
+                const file = event.target.files[0];
+                if (file) {
+                    reader.onload = function (e) {
+                        document.getElementById('imagePreview').style.display = 'block';
+                        document.getElementById('imagePreview').src = e.target.result;
+                    }
+                    reader.readAsDataURL(file);
                 }
-                reader.readAsDataURL(file);
-            }
-        });
-    </script>
-}
+            });
+        </script>
+    }
+</body>
+</html>
