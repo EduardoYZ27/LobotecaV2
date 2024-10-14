@@ -20,8 +20,13 @@ namespace Loboteva_v2.Models
         public string? Archivo { get; set; }
         public DateTime? FechaDeAlta { get; set; }
         public int? IdEditorial { get; set; }
+        public int? IdCarrera { get; set; }
+
 
         public virtual Editorial? IdEditorialNavigation { get; set; }
+        public virtual Carrera? IdCarreraNavigation { get; set; }
         public virtual ICollection<AutorRevistum> AutorRevista { get; set; }
+        
+
     }
 }

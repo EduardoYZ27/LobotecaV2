@@ -4,12 +4,13 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
+<h1>Revistas</h1>
 
 <p>
-    <a asp-action="Create">Create New</a>
+    <a asp-action="Create" class="btn btn-primary">Crear nueva revista</a>
 </p>
-<table class="table">
+
+<table class="table table-striped">
     <thead>
         <tr>
             <th>@Html.DisplayNameFor(model => model.Titulo)</th>
@@ -21,6 +22,7 @@
             <th>@Html.DisplayNameFor(model => model.Archivo)</th>
             <th>@Html.DisplayNameFor(model => model.FechaDeAlta)</th>
             <th>@Html.DisplayNameFor(model => model.IdEditorialNavigation.Nombre)</th>
+            <th>@Html.DisplayNameFor(model => model.IdCarreraNavigation.NombreDeLaCarrera)</th> <!-- Mostrar nombre de la carrera -->
             <th></th>
         </tr>
     </thead>
@@ -39,10 +41,11 @@
                 <td><a href="@item.Archivo" target="_blank">Ver PDF</a></td>
                 <td>@Html.DisplayFor(modelItem => item.FechaDeAlta)</td>
                 <td>@Html.DisplayFor(modelItem => item.IdEditorialNavigation.Nombre)</td>
+                <td>@Html.DisplayFor(modelItem => item.IdCarreraNavigation.NombreDeLaCarrera)</td> <!-- Mostrar nombre de la carrera -->
                 <td>
-                    <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                    <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                    <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                    <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-warning">Editar</a> |
+                    <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-info">Detalles</a> |
+                    <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger">Eliminar</a>
                 </td>
             </tr>
         }

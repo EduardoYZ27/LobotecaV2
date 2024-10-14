@@ -279,7 +279,7 @@ namespace Loboteva_v2.Models
                     .IsUnicode(false)
                     .HasColumnName("titulo");
 
-                entity.Property(e => e.IdCarrera).HasColumnName("id_carrera"); // Nueva columna para la relación
+                entity.Property(e => e.IdCarrera).HasColumnName("id_carrera");  // Nueva columna para la relación
 
                 entity.HasOne(d => d.IdEditorialNavigation)
                     .WithMany(p => p.ELibros)
@@ -438,10 +438,17 @@ namespace Loboteva_v2.Models
                     .IsUnicode(false)
                     .HasColumnName("titulo");
 
+                entity.Property(e => e.IdCarrera).HasColumnName("id_carrera");  // Nueva columna para la relación
+
                 entity.HasOne(d => d.IdEditorialNavigation)
                     .WithMany(p => p.Revista)
                     .HasForeignKey(d => d.IdEditorial)
                     .HasConstraintName("FK__revista__id_edit__59FA5E80");
+
+                entity.HasOne(d => d.IdCarreraNavigation)  // Relación con Carrera
+                    .WithMany(p => p.Revista)
+                    .HasForeignKey(d => d.IdCarrera)
+                    .HasConstraintName("FK_revista_Carrera");
             });
 
             modelBuilder.Entity<Sancione>(entity =>

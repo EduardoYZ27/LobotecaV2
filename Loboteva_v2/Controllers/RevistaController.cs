@@ -22,7 +22,7 @@ namespace Loboteva_v2.Controllers
         // GET: Revista
         public async Task<IActionResult> Index()
         {
-            var lobotecaContext = _context.Revista.Include(r => r.IdEditorialNavigation);
+            var lobotecaContext = _context.Revista.Include(r => r.IdEditorialNavigation).Include(r => r.IdCarreraNavigation);
             return View(await lobotecaContext.ToListAsync());
         }
 
@@ -30,13 +30,14 @@ namespace Loboteva_v2.Controllers
         public IActionResult Create()
         {
             ViewData["IdEditorial"] = new SelectList(_context.Editorials, "Id", "Nombre");
+            ViewData["IdCarrera"] = new SelectList(_context.Carreras, "Id", "NombreDeLaCarrera"); // Lista de carreras
             return View();
         }
 
         // POST: Revista/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Titulo,Issn,FechaDePublicacion,Genero,Estado,RutaImagen,Archivo,FechaDeAlta,IdEditorial")] Revistum revistum, IFormFile RutaImagen, IFormFile Archivo)
+        public async Task<IActionResult> Create([Bind("Id,Titulo,Issn,FechaDePublicacion,Genero,Estado,RutaImagen,Archivo,FechaDeAlta,IdEditorial,IdCarrera")] Revistum revistum, IFormFile RutaImagen, IFormFile Archivo)
         {
             if (ModelState.IsValid)
             {
@@ -69,6 +70,7 @@ namespace Loboteva_v2.Controllers
                 return RedirectToAction(nameof(Index));
             }
             ViewData["IdEditorial"] = new SelectList(_context.Editorials, "Id", "Nombre", revistum.IdEditorial);
+            ViewData["IdCarrera"] = new SelectList(_context.Carreras, "Id", "NombreDeLaCarrera", revistum.IdCarrera); // Mantener la selección de carrera
             return View(revistum);
         }
 
@@ -82,6 +84,7 @@ namespace Loboteva_v2.Controllers
 
             var revistum = await _context.Revista
                 .Include(r => r.IdEditorialNavigation)
+                .Include(r => r.IdCarreraNavigation) // Incluyendo Carrera
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (revistum == null)
             {
@@ -105,13 +108,14 @@ namespace Loboteva_v2.Controllers
                 return NotFound();
             }
             ViewData["IdEditorial"] = new SelectList(_context.Editorials, "Id", "Nombre", revistum.IdEditorial);
+            ViewData["IdCarrera"] = new SelectList(_context.Carreras, "Id", "NombreDeLaCarrera", revistum.IdCarrera); // Lista de carreras
             return View(revistum);
         }
 
         // POST: Revista/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Titulo,Issn,FechaDePublicacion,Genero,Estado,RutaImagen,Archivo,FechaDeAlta,IdEditorial")] Revistum revistum, IFormFile RutaImagen, IFormFile Archivo)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Titulo,Issn,FechaDePublicacion,Genero,Estado,RutaImagen,Archivo,FechaDeAlta,IdEditorial,IdCarrera")] Revistum revistum, IFormFile RutaImagen, IFormFile Archivo)
         {
             if (id != revistum.Id)
             {
@@ -163,6 +167,7 @@ namespace Loboteva_v2.Controllers
                 return RedirectToAction(nameof(Index));
             }
             ViewData["IdEditorial"] = new SelectList(_context.Editorials, "Id", "Nombre", revistum.IdEditorial);
+            ViewData["IdCarrera"] = new SelectList(_context.Carreras, "Id", "NombreDeLaCarrera", revistum.IdCarrera); // Mantener la selección de carrera
             return View(revistum);
         }
 
@@ -176,6 +181,7 @@ namespace Loboteva_v2.Controllers
 
             var revistum = await _context.Revista
                 .Include(r => r.IdEditorialNavigation)
+                .Include(r => r.IdCarreraNavigation) // Incluyendo Carrera
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (revistum == null)
             {
