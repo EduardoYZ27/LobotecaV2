@@ -1,0 +1,79 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Búsqueda de Libros - Loboteca</title>
+    <link rel="stylesheet" href="~/css/busqueda.css"> <!-- Referencia al archivo CSS -->
+</head>
+<body>
+
+    <nav class="navbar">
+
+    </nav>
+
+    <!-- Barra de navegación secundaria -->
+    <nav class="navbar2">
+        <ul>
+            <li>
+                <img src="~/images/home.png" alt="Inicio" class="icono">
+                <a href="@Url.Action("Inicio", "Inicio")">Inicio</a>
+            </li>
+            <li>
+                <img src="~/images/login.png" alt="Perfil" class="perfil">
+                <a href="@Url.Action("Login", "Login")">Perfil</a>
+            </li>
+        </ul>
+    </nav>
+
+    <!-- Sección principal -->
+    <main class="main-section">
+        <h1>Búsqueda de libros</h1>
+
+        <div class="busqueda-container">
+            <!-- Formulario de búsqueda -->
+            <div class="formulario-busqueda">
+                <label for="titulo">Titulo</label>
+                <input type="text" id="titulo" name="titulo">
+
+                <label for="autor">Autor</label>
+                <input type="text" id="autor" name="autor">
+
+                <label for="isbn">ISBN</label>
+                <input type="text" id="isbn" name="isbn">
+
+                <label for="editorial">Editorial</label>
+                <input type="text" id="editorial" name="editorial">
+
+                <label for="genero">Género</label>
+                <input type="text" id="genero" name="genero">
+
+                <div class="botones">
+                    <button class="btn-mostrar">MOSTRAR TODOS</button>
+                    <button class="btn-buscar">BUSCAR</button>
+                </div>
+            </div>
+
+            <!-- Listado de resultados -->
+            <div class="listado-busqueda">
+                <h2>Listado de búsqueda</h2>
+                <textarea rows="10" cols="30"></textarea>
+
+                <h3>Búsquedas preferidas</h3>
+                <input type="text" id="busqueda-preferida" name="busqueda-preferida">
+
+                <button class="btn-guardar">GUARDAR FILTRO</button>
+            </div>
+        </div>
+    </main>
+
+    <!-- Pie de página -->
+    <footer>
+        <p>&copy; Derechos Reservados Universidad Politécnica del Valle de Toluca</p>
+    </footer>
+</body>
+</html>
