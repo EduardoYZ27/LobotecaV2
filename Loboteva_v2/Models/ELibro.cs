@@ -20,8 +20,10 @@ namespace Loboteva_v2.Models
         public string? Archivo { get; set; }
         public DateTime? FechaDeAlta { get; set; }
         public int? IdEditorial { get; set; }
+        public int? IdCarrera { get; set; }  // Nueva columna para la relación con Carrera
 
         public virtual Editorial? IdEditorialNavigation { get; set; }
+        public virtual Carrera? IdCarreraNavigation { get; set; }  // Navegación a Carrera
         public virtual ICollection<AutorELibro> AutorELibros { get; set; }
     }
 }

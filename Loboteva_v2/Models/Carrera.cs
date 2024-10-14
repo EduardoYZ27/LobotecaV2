@@ -8,6 +8,7 @@ namespace Loboteva_v2.Models
         public Carrera()
         {
             Alumnos = new HashSet<Alumno>();
+            ELibros = new HashSet<ELibro>();  // Navegación a ELibro
         }
 
         public int Id { get; set; }
@@ -15,5 +16,6 @@ namespace Loboteva_v2.Models
         public string? Estado { get; set; }
 
         public virtual ICollection<Alumno> Alumnos { get; set; }
+        public virtual ICollection<ELibro> ELibros { get; set; }  // Relación con ELibro
     }
 }

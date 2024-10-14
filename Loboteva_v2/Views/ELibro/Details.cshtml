@@ -2,7 +2,7 @@
 
 @{
     Layout = null;
-    ViewData["Title"] = "Details";
+    ViewData["Title"] = "Detalles del ELibro";
 }
 
 <!DOCTYPE html>
@@ -73,6 +73,9 @@
 
                 <dt class="col-sm-4">Editorial</dt>
                 <dd class="col-sm-8">@Html.DisplayFor(model => model.IdEditorialNavigation.Nombre)</dd>
+
+                <dt class="col-sm-4">Carrera</dt> <!-- Nueva fila para Carrera -->
+                <dd class="col-sm-8">@Html.DisplayFor(model => model.IdCarreraNavigation.NombreDeLaCarrera)</dd> <!-- Mostrar el nombre de la Carrera -->
             </dl>
 
             <div class="botones">

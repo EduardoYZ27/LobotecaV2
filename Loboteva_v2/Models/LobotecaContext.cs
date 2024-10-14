@@ -33,7 +33,7 @@ namespace Loboteva_v2.Models
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            
+            // Opcional: puedes agregar configuración específica aquí
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -279,10 +279,17 @@ namespace Loboteva_v2.Models
                     .IsUnicode(false)
                     .HasColumnName("titulo");
 
+                entity.Property(e => e.IdCarrera).HasColumnName("id_carrera"); // Nueva columna para la relación
+
                 entity.HasOne(d => d.IdEditorialNavigation)
                     .WithMany(p => p.ELibros)
                     .HasForeignKey(d => d.IdEditorial)
                     .HasConstraintName("FK__e_libro__id_edit__534D60F1");
+
+                entity.HasOne(d => d.IdCarreraNavigation)  // Relación con Carrera
+                    .WithMany(p => p.ELibros)
+                    .HasForeignKey(d => d.IdCarrera)
+                    .HasConstraintName("FK_e_libro_Carrera");
             });
 
             modelBuilder.Entity<Editorial>(entity =>
