@@ -53,6 +53,17 @@ body {
     overflow: hidden; /* Asegura que no haya desbordamiento */
 }
 
+    .content h1 {
+        color: #781c2e;
+    }
+
+    .content img {
+        margin-top: 1.5cm;
+        max-width: 600px;
+        height: auto;
+        border-radius: 10px;
+    }
+
 .container {
     display: flex;
     min-height: 100vh; /* Asegura que ocupe toda la pantalla */
