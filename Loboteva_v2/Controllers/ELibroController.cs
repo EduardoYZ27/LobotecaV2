@@ -22,7 +22,7 @@ namespace Loboteva_v2.Controllers
         // GET: ELibro
         public async Task<IActionResult> Index()
         {
-            var lobotecaContext = _context.ELibros.Include(e => e.IdEditorialNavigation);
+            var lobotecaContext = _context.ELibros.Include(e => e.IdEditorialNavigation).Include(e => e.IdCarreraNavigation);
             return View(await lobotecaContext.ToListAsync());
         }
 
@@ -36,6 +36,7 @@ namespace Loboteva_v2.Controllers
 
             var eLibro = await _context.ELibros
                 .Include(e => e.IdEditorialNavigation)
+                .Include(e => e.IdCarreraNavigation)
                 .FirstOrDefaultAsync(m => m.Id == id);
 
             if (eLibro == null)
@@ -50,13 +51,14 @@ namespace Loboteva_v2.Controllers
         public IActionResult Create()
         {
             ViewData["IdEditorial"] = new SelectList(_context.Editorials, "Id", "Nombre");
+            ViewData["IdCarrera"] = new SelectList(_context.Carreras, "Id", "NombreDeLaCarrera");
             return View();
         }
 
         // POST: ELibro/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Titulo,Isbn,FechaDePublicacion,Genero,Estado,RutaImagen,Archivo,FechaDeAlta,IdEditorial")] ELibro eLibro, IFormFile RutaImagen, IFormFile Archivo)
+        public async Task<IActionResult> Create([Bind("Id,Titulo,Isbn,FechaDePublicacion,Genero,Estado,RutaImagen,Archivo,FechaDeAlta,IdEditorial,IdCarrera")] ELibro eLibro, IFormFile RutaImagen, IFormFile Archivo)
         {
             if (ModelState.IsValid)
             {
@@ -93,6 +95,7 @@ namespace Loboteva_v2.Controllers
                 return RedirectToAction(nameof(Index));
             }
             ViewData["IdEditorial"] = new SelectList(_context.Editorials, "Id", "Nombre", eLibro.IdEditorial);
+            ViewData["IdCarrera"] = new SelectList(_context.Carreras, "Id", "NombreDeLaCarrera", eLibro.IdCarrera);
             return View(eLibro);
         }
 
@@ -110,13 +113,14 @@ namespace Loboteva_v2.Controllers
                 return NotFound();
             }
             ViewData["IdEditorial"] = new SelectList(_context.Editorials, "Id", "Nombre", eLibro.IdEditorial);
+            ViewData["IdCarrera"] = new SelectList(_context.Carreras, "Id", "NombreDeLaCarrera", eLibro.IdCarrera);
             return View(eLibro);
         }
 
         // POST: ELibro/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Titulo,Isbn,FechaDePublicacion,Genero,Estado,RutaImagen,Archivo,FechaDeAlta,IdEditorial")] ELibro eLibro, IFormFile RutaImagen, IFormFile Archivo)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Titulo,Isbn,FechaDePublicacion,Genero,Estado,RutaImagen,Archivo,FechaDeAlta,IdEditorial,IdCarrera")] ELibro eLibro, IFormFile RutaImagen, IFormFile Archivo)
         {
             if (id != eLibro.Id)
             {
@@ -172,6 +176,7 @@ namespace Loboteva_v2.Controllers
                 return RedirectToAction(nameof(Index));
             }
             ViewData["IdEditorial"] = new SelectList(_context.Editorials, "Id", "Nombre", eLibro.IdEditorial);
+            ViewData["IdCarrera"] = new SelectList(_context.Carreras, "Id", "NombreDeLaCarrera", eLibro.IdCarrera);
             return View(eLibro);
         }
 
@@ -185,6 +190,7 @@ namespace Loboteva_v2.Controllers
 
             var eLibro = await _context.ELibros
                 .Include(e => e.IdEditorialNavigation)
+                .Include(e => e.IdCarreraNavigation)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (eLibro == null)
             {
