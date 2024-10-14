@@ -17,5 +17,7 @@ namespace Loboteva_v2.Models
 
         public virtual ICollection<Alumno> Alumnos { get; set; }
         public virtual ICollection<ELibro> ELibros { get; set; }  // Relación con ELibro
+        public virtual ICollection<Revistum> Revista { get; set; } // Esta es la propiedad que debe existir
+
     }
 }
