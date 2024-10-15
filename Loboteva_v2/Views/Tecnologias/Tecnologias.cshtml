@@ -7,7 +7,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ingeniería en Tecnologías de la Información - Lobotecaa</title>
+    <title>Ingeniería en Tecnologías de la Información - Loboteca</title>
     <link rel="stylesheet" href="~/css/tecnologias.css">
 </head>
 <body>
@@ -36,18 +36,14 @@
             <div class="carousel-container">
                 <button class="prev" onclick="moveCarousel(-1)">&#10094;</button>
                 <div class="carousel">
-                    <div class="book">
-                        <img src="~/images/tec1.jpg" alt="Libro 1">
-                        <p class="available">Disponible</p>
-                    </div>
-                    <div class="book">
-                        <img src="~/images/tec2.jpg" alt="Libro 2">
-                        <p class="available">Disponible</p>
-                    </div>
-                    <div class="book">
-                        <img src="~/images/tec3.jpg" alt="Libro 3">
-                        <p class="available">Disponible</p>
-                    </div>
+                    @foreach (var libro in ViewBag.LibrosRecientes)
+                    {
+                        <div class="book">
+                            <img src="@libro.RutaImagen" alt="@libro.Titulo">
+                            <button class="read-button" onclick="window.open('@libro.Archivo', '_blank')">Leer Libro</button>
+                            <p class="available">@libro.Estado</p>
+                        </div>
+                    }
                 </div>
                 <button class="next" onclick="moveCarousel(1)">&#10095;</button>
             </div>
@@ -60,18 +56,13 @@
             <div class="carousel-container">
                 <button class="prev" onclick="moveCarouselMagazines(-1)">&#10094;</button>
                 <div class="carousel">
-                    <div class="magazine">
-                        <img src="~/images/tec4.jpg" alt="Revista 1">
-                        <p class="available">Disponible</p>
-                    </div>
-                    <div class="magazine">
-                        <img src="~/images/tec4.jpg" alt="Revista 2">
-                        <p class="available">Disponible</p>
-                    </div>
-                    <div class="magazine">
-                        <img src="~/images/tec4.jpg" alt="Revista 3">
-                        <p class="available">Disponible</p>
-                    </div>
+                    @foreach (var revista in ViewBag.RevistasRecientes)
+                    {
+                        <div class="magazine">
+                            <img src="@revista.RutaImagen" alt="@revista.Titulo">
+                            <p class="available">@revista.Estado</p>
+                        </div>
+                    }
                 </div>
                 <button class="next" onclick="moveCarouselMagazines(1)">&#10095;</button>
             </div>

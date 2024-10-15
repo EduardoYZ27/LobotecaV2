@@ -18,13 +18,14 @@ namespace Loboteca1.Controllers
         {
             // Filtramos los 6 libros más recientes que pertenecen a la carrera de Industrial
             var librosRecientes = _context.ELibros
-                .Where(l => l.IdCarrera == 4) // Suponiendo que 1 es el ID de Industrial
+                .Where(l => l.IdCarrera == 4) // Suponiendo que 4 es el ID de Industrial
                 .OrderByDescending(l => l.Id)
                 .Take(6)
                 .ToList();
 
-            // Obtenemos las 6 revistas más recientes sin filtrar por carrera
+            // Filtramos las 6 revistas más recientes que pertenecen a la carrera de Industrial
             var revistasRecientes = _context.Revista
+                .Where(r => r.IdCarrera == 4) // Suponiendo que 4 es el ID de Industrial
                 .OrderByDescending(r => r.Id)
                 .Take(6)
                 .ToList();

@@ -86,6 +86,7 @@ body {
     text-align: center;
     transition: transform 0.5s ease-in-out;
     width: 200px; /* Ancho fijo para las imágenes */
+    position: relative; /* Para el botón superpuesto */
 }
 
     .book img, .magazine img {
@@ -103,6 +104,40 @@ body {
         font-size: 14px;
     }
 
+    /* Estilo del botón "Leer Libro" */
+    .book .read-button {
+        display: none;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: #ffd700; /* Color amarillo */
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        font-size: 16px;
+        cursor: pointer;
+        border-radius: 5px;
+        box-shadow: 0 4px #999; /* Sombra para el efecto 3D */
+        transition: 0.3s ease;
+    }
+
+    .book:hover .read-button {
+        display: block;
+    }
+
+.read-button:hover {
+    background-color: #ffcc00; /* Un tono más oscuro de amarillo al hacer hover */
+    box-shadow: 0 2px #666; /* Sombra más pequeña en hover */
+    transform: translate(-50%, -50%) translateY(2px); /* Efecto de presionar hacia abajo */
+}
+
+.read-button:active {
+    box-shadow: 0 0 #666; /* Sin sombra al presionar */
+    transform: translate(-50%, -50%) translateY(4px); /* Se presiona más al hacer clic */
+}
+
+/* Botones de carrusel */
 button.prev, button.next {
     background-color: #FFCC00; /* Color amarillo oscuro para los botones del carrusel */
     border: none;
