@@ -5,32 +5,32 @@ using Loboteva_v2.Models;
 
 namespace Loboteca1.Controllers
 {
-    public class IndustriController : Controller
+    public class BiotecnologiaController : Controller
     {
         private readonly LobotecaContext _context;
 
-        public IndustriController(LobotecaContext context)
+        public BiotecnologiaController(LobotecaContext context)
         {
             _context = context;
         }
 
-        public IActionResult Industri()
+        public IActionResult Biotecnologia()
         {
-            // Filtramos los 6 libros más recientes que pertenecen a la carrera de Industrial
+            // Filtramos los 6 libros más recientes que pertenecen a la carrera de Biotecnología (suponiendo IdCarrera = 5)
             var librosRecientes = _context.ELibros
-                .Where(l => l.IdCarrera == 1) // Suponiendo que 1 es el ID de la carrera Industrial
+                .Where(l => l.IdCarrera == 1)
                 .OrderByDescending(l => l.Id)
                 .Take(6)
                 .ToList();
 
-            // Filtramos las 6 revistas más recientes que pertenecen a la carrera de Industrial
+            // Filtramos las 6 revistas más recientes que pertenecen a la carrera de Biotecnología
             var revistasRecientes = _context.Revista
-                .Where(r => r.IdCarrera == 1) // Suponiendo que 1 es el ID de la carrera Industrial
+                .Where(r => r.IdCarrera == 1)
                 .OrderByDescending(r => r.Id)
                 .Take(6)
                 .ToList();
 
-            // Pasamos ambos conjuntos de datos a la vista
+            // Pasamos los datos a la vista
             ViewBag.LibrosRecientes = librosRecientes;
             ViewBag.RevistasRecientes = revistasRecientes;
 

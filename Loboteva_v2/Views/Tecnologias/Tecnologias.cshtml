@@ -8,7 +8,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ingeniería en Tecnologías de la Información - Loboteca</title>
-    <link rel="stylesheet" href="~/css/tecnologias.css">
+    <link rel="stylesheet" href="~/css/Tecnologias/tecnologias.css">
 </head>
 <body>
     <!-- Barra de navegación -->
@@ -40,6 +40,7 @@
                     {
                         <div class="book">
                             <img src="@libro.RutaImagen" alt="@libro.Titulo">
+                            <!-- Botón Leer Libro añadido -->
                             <button class="read-button" onclick="window.open('@libro.Archivo', '_blank')">Leer Libro</button>
                             <p class="available">@libro.Estado</p>
                         </div>
@@ -60,6 +61,8 @@
                     {
                         <div class="magazine">
                             <img src="@revista.RutaImagen" alt="@revista.Titulo">
+                            <!-- Botón Leer Revista añadido -->
+                            <button class="read-button" onclick="window.open('@revista.Archivo', '_blank')">Leer Revista</button>
                             <p class="available">@revista.Estado</p>
                         </div>
                     }
