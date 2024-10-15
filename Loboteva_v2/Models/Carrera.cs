@@ -9,6 +9,7 @@ namespace Loboteva_v2.Models
         {
             Alumnos = new HashSet<Alumno>();
             ELibros = new HashSet<ELibro>();  // Navegación a ELibro
+            Revista = new HashSet<Revistum>();
         }
 
         public int Id { get; set; }
