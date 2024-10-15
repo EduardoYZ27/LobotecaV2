@@ -59,9 +59,18 @@ namespace Loboteva_v2.Controllers
         {
             if (ModelState.IsValid)
             {
-                _context.Add(carrera);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                try
+                {
+                    _context.Add(carrera);
+                    await _context.SaveChangesAsync(); // Guardar los cambios en la base de datos
+                    return RedirectToAction(nameof(Index));
+                }
+                catch (Exception ex)
+                {
+                    // Mostrar un mensaje de error si hay un problema con la base de datos
+                    ModelState.AddModelError("", "No se pudo guardar el registro. Intente nuevamente.");
+                    return View(carrera);
+                }
             }
             return View(carrera);
         }
@@ -99,7 +108,7 @@ namespace Loboteva_v2.Controllers
                 try
                 {
                     _context.Update(carrera);
-                    await _context.SaveChangesAsync();
+                    await _context.SaveChangesAsync(); // Guardar los cambios en la base de datos
                 }
                 catch (DbUpdateConcurrencyException)
                 {
@@ -111,6 +120,12 @@ namespace Loboteva_v2.Controllers
                     {
                         throw;
                     }
+                }
+                catch (Exception ex)
+                {
+                    // Mostrar un mensaje de error si hay un problema con la base de datos
+                    ModelState.AddModelError("", "No se pudo actualizar el registro. Intente nuevamente.");
+                    return View(carrera);
                 }
                 return RedirectToAction(nameof(Index));
             }
