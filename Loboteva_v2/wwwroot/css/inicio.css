@@ -110,38 +110,41 @@ body {
 /* Sección de Nosotros */
 .nosotros {
     padding: 40px;
-    text-align: center;
+    background-color: #f9f9f9; /* Color de fondo */
 }
 
     .nosotros h2 {
-        font-size: 36px;
-        margin-bottom: 20px;
+        text-align: center;
     }
 
 .nosotros-content {
-    display: flex;
+    display: flex; /* Para crear columnas */
     justify-content: space-between;
+    max-width: 1200px; /* Ancho máximo para mantener la estética */
+    margin: 0 auto; /* Centrar el contenido */
 }
 
 .column {
-    width: 45%;
-    text-align: justify;
+    width: 45%; /* Ancho de cada columna */
+    padding: 10px;
 }
 
     .column h3 {
-        font-size: 24px;
-        margin-bottom: 10px;
+        font-size: 24px; /* Tamaño de fuente del encabezado */
+    }
+
+    .column p {
+        text-align: justify; /* Justificar texto */
     }
 
 /* Sección de Informes */
 .informes {
     padding: 40px;
-    text-align: center;
+    background-color: #ffffff; /* Color de fondo para la sección de informes */
 }
 
     .informes h2 {
-        font-size: 36px;
-        margin-bottom: 20px;
+        text-align: center;
     }
 
 .carousel-container {
@@ -149,24 +152,47 @@ body {
     justify-content: center;
     align-items: center;
     position: relative;
+    margin-top: 20px;
 }
 
 .carousel {
     display: flex;
     overflow: hidden;
-    width: 80%;
+    width: 50%; /* Ajusta el ancho según sea necesario */
     justify-content: center;
 }
 
 .carousel-image {
-    width: 150px; /* Ajusta el tamaño de las imágenes */
+    margin: 0 10px;
+    width: 150px; /* Tamaño predeterminado para las imágenes del carrusel */
     height: auto; /* Mantiene la proporción */
-    margin: 0 10px; /* Espaciado entre las imágenes */
+    border-radius: 5px; /* Borde redondeado */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+}
+
+button.prev, button.next {
+    background-color: #781c2e; /* Color de fondo para los botones del carrusel */
+    border: none;
+    color: white;
+    padding: 10px;
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1;
+}
+
+button.prev {
+    left: 10px;
+}
+
+button.next {
+    right: 10px;
 }
 
 /* Pie de página */
 footer {
-    background-color: #781c2e;
+    background-color: #781c2e; /* Color de fondo para el pie de página */
     color: white;
     text-align: center;
     padding: 20px;
