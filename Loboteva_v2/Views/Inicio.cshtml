@@ -18,8 +18,8 @@
         <nav class="navbar2">
             <ul>
                 <li><img src="~/images/libros.png" alt="libros" class="libros"> <a href="#" class="libros-link">Libros</a></li>
-                <li><img src="~/images/contacto.png" alt="Contacto" class="contacto"><a href="#">Información</a></li>
-                <li><img src="~/images/nosotros.png" alt="nosotros" class="nosotros"><a href="#">Nosotros</a></li>
+                <li><img src="~/images/contacto.png" alt="Contacto" class="contacto"><a href="#informes">Información</a></li>
+                <li><img src="~/images/nosotros.png" alt="nosotros" class="nosotros"><a href="#nosotros">Nosotros</a></li>
                 <li><img src="~/images/login.png" alt="perfil" class="perfil"><a href="@Url.Action("Login", "Login")">Iniciar Sesión</a></li>
             </ul>
         </nav>
@@ -39,7 +39,7 @@
     </main>
 
     <!-- Sección de Nosotros -->
-    <section class="nosotros">
+    <section class="nosotros" id="nosotros">
         <h2>Nosotros</h2>
         <div class="nosotros-content">
             <div class="column">
@@ -54,7 +54,7 @@
     </section>
 
     <!-- Sección de Informes -->
-    <section class="informes">
+    <section class="informes" id="informes">
         <h2>Informes</h2>
         <div class="carousel-container">
             <button class="prev" onclick="moveCarousel(-1)">&#10094;</button>
@@ -107,6 +107,5 @@
             };
         });
     </script>
-
 </body>
 </html>
