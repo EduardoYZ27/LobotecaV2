@@ -9,6 +9,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Panel de Administración</title>
     <link rel="stylesheet" href="~/css/Admin/admin.css">
+    <style>
+        /* Estilos para el botón de cerrar sesión */
+        .logout-button {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background-color: #781c2e;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: background-color 0.3s;
+        }
+
+        .logout-button:hover {
+            background-color: #a02e3d;
+        }
+    </style>
 </head>
 <body>
     <div class="container">
@@ -35,11 +55,21 @@
         <div class="content">
             <h1>Bienvenido al Sistema de Administración</h1>
             <img src="~/images/Loboteca.png" alt="Imagen biblioteca">
+            <button class="logout-button" onclick="cerrarSesion()">Cerrar Sesión</button> <!-- Botón para cerrar sesión -->
         </div>
     </div>
 
     <footer>
         <p>&copy; Derechos Reservados Universidad Politécnica del Valle de Toluca</p>
     </footer>
+
+    <script>
+        function cerrarSesion() {
+            // Lógica para cerrar sesión
+            localStorage.removeItem("carreraSeleccionada");
+            alert("Has cerrado sesión.");
+            window.location.href = "/Login/Login"; // Redirigir a la página de login
+        }
+    </script>
 </body>
 </html>

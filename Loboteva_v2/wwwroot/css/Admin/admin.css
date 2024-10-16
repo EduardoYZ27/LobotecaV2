@@ -86,3 +86,18 @@ footer {
     bottom: 0;
 }
 
+.logout-button {
+    position: fixed; /* Fijo para que se mantenga en la esquina superior derecha */
+    top: 20px; /* Espaciado desde la parte superior */
+    right: 20px; /* Espaciado desde la derecha */
+    padding: 10px 15px; /* Espaciado interno del botón */
+    background-color: #781c2e; /* Color de fondo del botón */
+    color: white; /* Color del texto */
+    border: none; /* Sin borde */
+    border-radius: 5px; /* Bordes redondeados */
+    cursor: pointer; /* Cambiar cursor al pasar el ratón */
+}
+
+    .logout-button:hover {
+        background-color: darkolivegreen; /* Cambia el color al pasar el ratón */
+    }

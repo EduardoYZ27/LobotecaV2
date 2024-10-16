@@ -23,6 +23,7 @@
                 <li><img src="~/images/revistaIn.png" alt="Revistas" class="revistas"><a href="#revistas">Revistas</a></li>
                 <li><img src="~/images/sancionIn.png" alt="Sanciones" class="sanciones"><a href="@Url.Action("Sanciones", "Sanciones")">Sanciones</a></li>
                 <li><img src="~/images/login_a.png" alt="Perfil" class="perfil"><a href="@Url.Action("Info_user", "Info_user")">Perfil</a></li>
+                <li><button id="logoutButton">Cerrar Sesión</button></li> <!-- Botón de cierre de sesión -->
             </ul>
         </nav>
     </header>
@@ -38,12 +39,12 @@
                 <div class="carousel">
                     @foreach (var libro in ViewBag.LibrosRecientes)
                     {
-                            <div class="book">
-                                <img src="@libro.RutaImagen" alt="@libro.Titulo">
-                                <!-- Botón Leer Libro añadido -->
-                                <button class="read-button" onclick="window.open('@libro.Archivo', '_blank')">Leer Libro</button>
-                                <p class="available">@libro.Estado</p>
-                            </div>
+                        <div class="book">
+                            <img src="@libro.RutaImagen" alt="@libro.Titulo">
+                            <!-- Botón Leer Libro añadido -->
+                            <button class="read-button" onclick="window.open('@libro.Archivo', '_blank')">Leer Libro</button>
+                            <p class="available">@libro.Estado</p>
+                        </div>
                     }
                 </div>
                 <button class="next" onclick="moveCarousel(1)">&#10095;</button>
@@ -59,12 +60,12 @@
                 <div class="carousel">
                     @foreach (var revista in ViewBag.RevistasRecientes)
                     {
-                            <div class="magazine">
-                                <img src="@revista.RutaImagen" alt="@revista.Titulo">
-                                <!-- Botón Leer Revista añadido -->
-                                <button class="read-button" onclick="window.open('@revista.Archivo', '_blank')">Leer Revista</button>
-                                <p class="available">@revista.Estado</p>
-                            </div>
+                        <div class="magazine">
+                            <img src="@revista.RutaImagen" alt="@revista.Titulo">
+                            <!-- Botón Leer Revista añadido -->
+                            <button class="read-button" onclick="window.open('@revista.Archivo', '_blank')">Leer Revista</button>
+                            <p class="available">@revista.Estado</p>
+                        </div>
                     }
                 </div>
                 <button class="next" onclick="moveCarouselMagazines(1)">&#10095;</button>
@@ -83,5 +84,16 @@
     </footer>
 
     <script src="~/js/carrusel.js"></script>
+    <script>
+        // Manejador de clic en el botón de cerrar sesión
+        document.getElementById("logoutButton").addEventListener("click", function () {
+            const confirmLogout = confirm("¿Estás seguro de que deseas cerrar sesión?");
+            if (confirmLogout) {
+                localStorage.removeItem("carreraSeleccionada"); // Eliminar la carrera seleccionada del localStorage
+                alert("Has cerrado sesión.");
+                window.location.href = "/Login/Login"; // Redirigir a la página de inicio de sesión
+            }
+        });
+    </script>
 </body>
 </html>
