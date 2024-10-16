@@ -108,12 +108,15 @@ body {
     }
 
 /* Sección de Nosotros */
-.nosotros {
+.nosotross {
     padding: 40px;
-    background-color: #f9f9f9; /* Color de fondo */
+    background-color: #974545; /* Color de fondo */
 }
 
     .nosotros h2 {
+        text-align: center;
+    }
+    .nosotross h3 {
         text-align: center;
     }
 
@@ -158,13 +161,13 @@ body {
 .carousel {
     display: flex;
     overflow: hidden;
-    width: 50%; /* Ajusta el ancho según sea necesario */
+    width: 80%; /* Ajusta el ancho según sea necesario */
     justify-content: center;
 }
 
 .carousel-image {
     margin: 0 10px;
-    width: 150px; /* Tamaño predeterminado para las imágenes del carrusel */
+    width: 70%; /* Tamaño predeterminado para las imágenes del carrusel */
     height: auto; /* Mantiene la proporción */
     border-radius: 5px; /* Borde redondeado */
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra sutil */
