@@ -110,7 +110,7 @@ body {
 /* Sección de Nosotros */
 .seccion-nosotros {
     padding: 40px;
-    background-color: #974545;
+    background-color: lightgray;
 }
 
     .seccion-nosotros h3 {
@@ -170,7 +170,7 @@ body {
 /* Imagen del carrusel */
 .carousel-image {
     margin: 0 10px;
-    width: 100%; /* Aumenta el ancho para que ocupe el 100% del contenedor */
+    width: 7 0%; /* Aumenta el ancho para que ocupe el 100% del contenedor */
     height: auto; /* Mantiene la proporción de la imagen */
     max-height: 500px; /* Aumenta la altura máxima de la imagen */
     border-radius: 5px; /* Borde redondeado */
