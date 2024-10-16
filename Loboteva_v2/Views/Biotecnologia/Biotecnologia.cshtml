@@ -23,6 +23,8 @@
                 <li><img src="~/images/revistasB.png" alt="Revistas" class="revistas"><a href="#revistas">Revistas</a></li>
                 <li><img src="~/images/sancionesB.png" alt="Sanciones" class="sanciones"><a href="@Url.Action("Sanciones", "Sanciones")">Sanciones</a></li>
                 <li><img src="~/images/login_v.png" alt="Perfil" class="perfil"><a href="@Url.Action("Info_user", "Info_user")">Perfil</a></li>
+                <li><button id="logoutButton" class="logout-button">Cerrar Sesión</button></li> <!-- Botón de cerrar sesión -->
+
             </ul>
         </nav>
     </header>
@@ -85,5 +87,6 @@
     </footer>
 
     <script src="~/js/carrusel.js"></script>
+    <script src="~/js/cerrar_se.js"></script>
 </body>
 </html>

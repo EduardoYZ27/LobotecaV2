@@ -23,6 +23,7 @@
                 <li><img src="~/images/revistasMECA.png" alt="Revistas" class="revistas"><a href="#revistas">Revistas</a></li>
                 <li><img src="~/images/castigoMeca.png" alt="Sanciones" class="sanciones"><a href="@Url.Action("Sanciones", "Sanciones")">Sanciones</a></li>
                 <li><img src="~/images/login_gri.png" alt="Perfil" class="perfil"><a href="@Url.Action("Info_user", "Info_user")">Perfil</a></li>
+                <li><button class="logout-button" id="logoutButton">Cerrar Sesión</button></li> <!-- Botón de cerrar sesión -->
             </ul>
         </nav>
     </header>
@@ -83,5 +84,16 @@
     </footer>
 
     <script src="~/js/carrusel.js"></script>
+    <script>
+        // Manejador de clic en el botón de cerrar sesión
+        document.getElementById("logoutButton").addEventListener("click", function () {
+            const confirmLogout = confirm("¿Estás seguro de que deseas cerrar sesión?");
+            if (confirmLogout) {
+                localStorage.removeItem("carreraSeleccionada"); // Eliminar la carrera seleccionada del localStorage
+                alert("Has cerrado sesión.");
+                window.location.href = "/Login/Login"; // Redirigir a la página de inicio de sesión
+            }
+        });
+    </script>
 </body>
 </html>
