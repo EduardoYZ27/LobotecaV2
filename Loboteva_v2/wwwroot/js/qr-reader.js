@@ -54,10 +54,10 @@
         "Ingeniería en Tecnologías de la Información": { codigo: "132137", url: "/Tecnologias/Tecnologias" },
         "Ingeniería Industrial": { codigo: "222222", url: "/Industri/Industri" },
         "Ingeniería Mecánica": { codigo: "333333", url: "/Mecanica/Mecanica" },
-        "Ingeniería Civil": { codigo: "444444", url: "/Civil/Civil" },
-        "Ingeniería en Sistemas Computacionales": { codigo: "555555", url: "/Sistemas/Sistemas" },
-        "Licenciatura en Administración": { codigo: "666666", url: "/Administracion/Administracion" },
-        "Licenciatura en Psicología": { codigo: "777777", url: "/Psicologia/Psicologia" }
+        "Ingeniería Mecatronica": { codigo: "444444", url: "/Mecatronica/Mecatronica" },
+        "Licenciatura en Negocios": { codigo: "555555", url: "/Negocios/Negocios" },
+        "Ingeniería en Energia": { codigo: "666666", url: "/Energia/Energia" },
+        "Ingeniería en Biotecnologia": { codigo: "777777", url: "/Biotecnologia/Biotecnologia" }
     };
 
     // Al cargar la página, verifica si hay una carrera seleccionada
