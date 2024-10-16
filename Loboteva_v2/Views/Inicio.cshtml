@@ -8,7 +8,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inicio - Loboteca</title>
-    <link rel="stylesheet" href="~/css/inicio.css">
+    <!-- Ruta CSS corregida -->
+    <link rel="stylesheet" href="/css/inicio.css">
 </head>
 <body>
     <!-- Barra de navegación -->
@@ -17,10 +18,10 @@
 
         <nav class="navbar2">
             <ul>
-                <li><img src="~/images/libros.png" alt="libros" class="libros"> <a href="#" class="libros-link">Libros</a></li>
-                <li><img src="~/images/contacto.png" alt="Contacto" class="contacto"><a href="#informes">Información</a></li>
-                <li><img src="~/images/nosotros.png" alt="nosotros" class="nosotros"><a href="#nosotros">Nosotros</a></li>
-                <li><img src="~/images/login.png" alt="perfil" class="perfil"><a href="@Url.Action("Login", "Login")">Iniciar Sesión</a></li>
+                <li><img src="/images/libros.png" alt="libros" class="libros"> <a href="#" class="libros-link">Libros</a></li>
+                <li><img src="/images/contacto.png" alt="Contacto" class="contacto"><a href="#informes">Información</a></li>
+                <li><img src="/images/nosotros.png" alt="nosotros" class="nosotros"><a href="#nosotros">Nosotros</a></li>
+                <li><img src="/images/login.png" alt="perfil" class="perfil"><a href="@Url.Action("Login", "Login")">Iniciar Sesión</a></li>
             </ul>
         </nav>
     </header>
@@ -30,16 +31,16 @@
         <div class="content">
             <div class="slogan">
                 <h1>Conocimiento sin límites, al alcance de todos.</h1>
-                <a href="#" class="btn-primary" id="startQrButton">MIRAR MAS...</a> <!-- Botón para iniciar escaneo -->
+                <a href="#" class="btn-primary" id="startQrButton">MIRAR MAS...</a>
             </div>
             <div class="books">
-                <img src="~/images/CatalogoLibros.png" alt="Libro 1">
+                <img src="/images/CatalogoLibros.png" alt="Libro 1">
             </div>
         </div>
     </main>
 
     <!-- Sección de Nosotros -->
-    <section class="nosotross" id="nosotross">
+    <section class="seccion-nosotros" id="nosotros">
         <h2>Nosotros</h2>
         <div class="nosotros-content">
             <div class="column">
@@ -59,8 +60,8 @@
         <div class="carousel-container">
             <button class="prev" onclick="moveCarousel(-1)">&#10094;</button>
             <div class="carousel">
-                <img src="~/images/informes1.jpeg" alt="Informe 1" class="carousel-image">
-                <img src="~/images/informes2.png" alt="Informe 2" class="carousel-image">
+                <img src="/images/informes1.jpeg" alt="Informe 1" class="carousel-image">
+                <img src="/images/informes2.png" alt="Informe 2" class="carousel-image">
             </div>
             <button class="next" onclick="moveCarousel(1)">&#10095;</button>
         </div>
@@ -70,15 +71,15 @@
     <footer>
         <p>&copy; Derechos Reservados Universidad Politécnica del Valle de Toluca</p>
         <div class="social-icons">
-            <a href="#"><img src="~/images/facebook.png" alt="Facebook"></a>
-            <a href="#"><img src="~/images/instagram.png" alt="Instagram"></a>
-            <a href="#"><img src="~/images/email.png" alt="Correo"></a>
+            <a href="#"><img src="/images/facebook.png" alt="Facebook"></a>
+            <a href="#"><img src="/images/instagram.png" alt="Instagram"></a>
+            <a href="#"><img src="/images/email.png" alt="Correo"></a>
         </div>
     </footer>
 
     <!-- Enlazar el archivo JavaScript -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="~/js/carru_inicio.js"></script>
+    <script src="/js/carru_inicio.js"></script>
     <script>
         $(document).ready(function () {
             // Manejador de clic en el enlace de libros
@@ -90,7 +91,7 @@
                     alert("Por favor inicia sesión escaneando tu código QR para acceder a los libros de tu carrera.");
                 } else {
                     // Redirigir a la página correspondiente de la carrera seleccionada
-                    const urlCarrera = carreras[carreraSeleccionada].url; // Obtén la URL de la carrera
+                    const urlCarrera = carreras[carreraSeleccionada].url;
                     window.location.href = urlCarrera; // Redirige a la URL de la carrera
                 }
             });
