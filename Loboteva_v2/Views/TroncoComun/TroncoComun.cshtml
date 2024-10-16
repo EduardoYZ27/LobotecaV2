@@ -32,7 +32,7 @@
                         <li><a href="#comunicacion">Comunicación y Habilidades Blandas</a></li>
                     </ul>
                 </li>
-                <li><img src="~/images/sanciones.png" alt="Sanciones" class="sanciones"><a href="@Url.Action("Sanciones", "Sanciones")">Sanciones</a></li>
+                <li><img src="~/images/sanciones.png" alt="Sanciones" class="sanciones"><a href="@Url.Action("Sanciones", "Sanciones")">sanciones</a></li>
                 <li><img src="~/images/login.png" alt="Perfil" class="perfil"><a href="@Url.Action("Info_user", "Info_user")">Perfil</a></li>
             </ul>
         </nav>
@@ -147,7 +147,30 @@
         </div>
     </footer>
 
-    <script src="@Url.Content("~/js/submenu.js")"></script>
+    <script>
+        function toggleSubMenu() {
+            var submenu = document.getElementById("submenuCarrera");
+            if (submenu.style.display === "block") {
+                submenu.style.display = "none";
+            } else {
+                submenu.style.display = "block";
+            }
+        }
+
+        // Para cerrar el menú si se hace clic fuera de él
+        window.onclick = function (event) {
+            if (!event.target.matches('#carreraMenu') && !event.target.matches('a')) {
+                var submenus = document.getElementsByClassName("submenu");
+                for (var i = 0; i < submenus.length; i++) {
+                    var openSubmenu = submenus[i];
+                    if (openSubmenu.style.display === "block") {
+                        openSubmenu.style.display = "none";
+                    }
+                }
+            }
+        }
+    </script>
+
 
 </body>
 </html>

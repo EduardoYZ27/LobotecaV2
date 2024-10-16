@@ -146,21 +146,41 @@ body {
     }
 
 /* Botón para leer libros */
-.btn-leer-libro {
-    background-color: #781c2e;
+.read-button {
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #781c2e; /* Color azul oscuro */
     color: white;
     border: none;
     padding: 10px 20px;
-    margin-top: 10px;
-    border-radius: 5px;
-    cursor: pointer;
     font-size: 16px;
-    transition: background-color 0.3s ease;
+    cursor: pointer;
+    border-radius: 5px;
+    box-shadow: 0 4px #999; /* Sombra para el efecto 3D */
+    transition: 0.3s ease;
 }
 
-    .btn-leer-libro:hover {
-        background-color: #781c2e;
-    }
+/* Mostrar el botón cuando el usuario pasa el ratón sobre el libro */
+.book:hover .read-button {
+    display: block;
+}
+
+/* Cambiar el color y efecto cuando el botón está en hover */
+.read-button:hover {
+    background-color: #781c2e; /* Un tono más oscuro de azul */
+    box-shadow: 0 2px #666; /* Sombra más pequeña */
+    transform: translate(-50%, -50%) translateY(2px); /* Efecto de presión hacia abajo */
+}
+
+/* Efecto cuando se presiona el botón */
+.read-button:active {
+    box-shadow: 0 0 #666; /* Sin sombra cuando está presionado */
+    transform: translate(-50%, -50%) translateY(4px); /* Se presiona más */
+}
+
 
 /* Botones de navegación del carrusel */
 button.prev, button.next {
